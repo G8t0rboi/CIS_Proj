@@ -21,7 +21,7 @@ app.get('/students', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
+                user: "insertUsername",
                 password: "insertPassword",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
