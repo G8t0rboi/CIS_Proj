@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Backend/server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1680540716928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1680540716928,
+            "name": "Commit-0",
+            "content": "const express = require('express');\r\nconst oracledb = require('oracledb');\r\nconst cors = require('cors');\r\n\r\nconst app = express();\r\n\r\napp.use(cors());\r\n\r\n\r\napp.get(\"/api\", (req, res) => {\r\n\r\n    res.send('Hello, World!')\r\n\r\n})\r\n\r\napp.get('/students', (req, res) => {\r\n\r\n    async function fetchDataStudents() {\r\n\r\n        try {\r\n\r\n            oracledb.initOracleClient({libDir: 'C:\\\\oracle\\\\instantclient_21_9'});\r\n\r\n\r\n\r\n            const connection = await oracledb.getConnection({\r\n\r\n                user: \"manuel.nunez\",\r\n                password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n            })\r\n\r\n            const result = await connection.execute('SELECT * FROM AHS_POST_2015')\r\n            return result;\r\n\r\n        } catch (error) {\r\n\r\n            console.error(error);\r\n            return error;\r\n\r\n        }\r\n\r\n    }\r\n\r\n    fetchDataStudents().then(dbRes => {\r\n\r\n        res.send(dbRes)\r\n\r\n    })\r\n        .catch(error => {\r\n\r\n            res.send(\"bru\")\r\n\r\n        })\r\n\r\n})\r\n\r\napp.get('/message', (req,res) => {\r\n\r\n    res.json({message: \"Hello from server!\"})\r\n\r\n})\r\n\r\napp.listen(8080, () => { console.log(\"Server started on port 8080\") })\r\n"
+        }
+    ]
+}
