@@ -1,6 +1,10 @@
 const express = require('express');
 const oracledb = require('oracledb');
+const cors = require('cors');
+
 const app = express();
+
+app.use(cors());
 
 
 app.get("/api", (req, res) => {
@@ -21,12 +25,12 @@ app.get('/students', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
-                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
-            const result = await connection.execute('SELECT * FROM STUDENT')
+            const result = await connection.execute('SELECT * FROM AHS_POST_2015')
             return result;
 
         } catch (error) {
@@ -51,10 +55,9 @@ app.get('/students', (req, res) => {
 
 })
 
-app.post("/post_name", async (req, res) => {
+app.get('/message', (req,res) => {
 
-    let {name} = req.body
-    console.log(name)
+    res.json({message: "Hello from server!"})
 
 })
 

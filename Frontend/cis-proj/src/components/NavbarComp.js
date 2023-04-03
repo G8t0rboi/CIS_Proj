@@ -11,7 +11,7 @@ function NavbarComp() {
 
     <>
       <Router>
-        <Navbar class="navbar navbar-dark bg-primary" expand="lg">
+        <Navbar className="navbar navbar-dark bg-primary" expand="lg">
           <Container>
             <Navbar.Brand as={Link} to={"/home"} href="#home">Housing Through Different Lenses</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
