@@ -1,0 +1,114 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1681502578219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681504198928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n+\r\n+\r\n function App() {\r\n+  \r\n \r\n   \r\n   useEffect(() => {\r\n \r\n"
+                },
+                {
+                    "date": 1681504231505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n+const api = axios.create({\r\n \r\n+  baseURL: 'http://localhost:8080/students'\r\n+})\r\n \r\n function App() {\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1681504385507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,8 @@\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n-const api = axios.create({\r\n-\r\n-  baseURL: 'http://localhost:8080/students'\r\n-})\r\n-\r\n function App() {\r\n   \r\n \r\n   \r\n"
+                },
+                {
+                    "date": 1681504647020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,14 @@\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n function App() {\r\n   \r\n+  state = {\r\n \r\n-  \r\n+    courses: []\r\n+\r\n+  }\r\n+\r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n"
+                },
+                {
+                    "date": 1681504751454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,15 +5,9 @@\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n function App() {\r\n-  \r\n-  state = {\r\n \r\n-    courses: []\r\n-\r\n-  }\r\n-\r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n"
+                },
+                {
+                    "date": 1681504949434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n function App() {\r\n \r\n+  const []\r\n+\r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n"
+                },
+                {
+                    "date": 1681505098446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n function App() {\r\n \r\n-  const []\r\n+  \r\n \r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n"
+                },
+                {
+                    "date": 1681505224011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,18 @@\n import { LineChartComp } from './components/LineChartComp';\r\n \r\n function App() {\r\n \r\n-  \r\n+  const getData = () => {\r\n \r\n+    axios.get(\"http://localhost:8080/students\").then((response) => {\r\n+\r\n+      console.log(response.data)\r\n+\r\n+    })\r\n+\r\n+  }\r\n+\r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n"
+                },
+                {
+                    "date": 1681505284105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n-\r\n+import Button from 'react-bootstrap/Button'\r\n function App() {\r\n \r\n   const getData = () => {\r\n \r\n@@ -29,8 +29,9 @@\n   \r\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n+      <Button>Get Data</Button>\r\n \r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1681505376503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n import { LineChartComp } from './components/LineChartComp';\r\n import Button from 'react-bootstrap/Button'\r\n+\r\n function App() {\r\n \r\n   const getData = () => {\r\n \r\n"
+                },
+                {
+                    "date": 1681506563988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,40 @@\n+import './App.css';\r\n+import NavbarComp from './components/NavbarComp';\r\n+import React, {useEffect, useState} from 'react';\r\n+import axios from 'axios'\r\n+import 'bootstrap/dist/css/bootstrap.min.css';\r\n+import { LineChartComp } from './components/LineChartComp';\r\n+import Button from 'react-bootstrap/Button'\r\n+\r\n+function App() {\r\n+\r\n+  const getData = () => {\r\n+\r\n+    axios.get(\"http://localhost:8080/students\").then((response) => {\r\n+\r\n+      console.log(response.data)\r\n+\r\n+    })\r\n+\r\n+  }\r\n+\r\n+  useEffect(() => {\r\n+\r\n+    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n+\r\n+      console.log(response.data);\r\n+\r\n+    })\r\n+\r\n+  }, [])\r\n+  \r\n+  return (\r\n+    <>\r\n+      <NavbarComp></NavbarComp>\r\n+      <Button onClick={getData}>Get Data</Button>\r\n+\r\n+    </>\r\n+  );\r\n+}\r\n+\r\n+export default App;\r\n"
+                },
+                {
+                    "date": 1681506733283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,10 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n+  const [data, setData] = useState(\"\")\r\n+\r\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n@@ -37,44 +39,4 @@\n   );\r\n }\r\n \r\n export default App;\r\n-import './App.css';\r\n-import NavbarComp from './components/NavbarComp';\r\n-import React, {useEffect, useState} from 'react';\r\n-import axios from 'axios'\r\n-import 'bootstrap/dist/css/bootstrap.min.css';\r\n-import { LineChartComp } from './components/LineChartComp';\r\n-import Button from 'react-bootstrap/Button'\r\n-\r\n-function App() {\r\n-\r\n-  const getData = () => {\r\n-\r\n-    axios.get(\"http://localhost:8080/students\").then((response) => {\r\n-\r\n-      console.log(response.data)\r\n-\r\n-    })\r\n-\r\n-  }\r\n-\r\n-  useEffect(() => {\r\n-\r\n-    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n-\r\n-      console.log(response.data);\r\n-\r\n-    })\r\n-\r\n-  }, [])\r\n-  \r\n-  return (\r\n-    <>\r\n-      <NavbarComp></NavbarComp>\r\n-      <Button>Get Data</Button>\r\n-\r\n-    </>\r\n-  );\r\n-}\r\n-\r\n-export default App;\r\n"
+                },
+                {
+                    "date": 1681506968061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data)\r\n+      console.log(response)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681507561689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n+      setData(response.data)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681507579294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n+      <p>{data}</p>\r\n \r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1681507610643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n-  const [data, setData] = useState(\"\")\r\n+  const [data, setData] = useState([])\r\n \r\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n"
+                },
+                {
+                    "date": 1681507647997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n-  const [data, setData] = useState([])\r\n+  const [data, setData] = useState(null)\r\n \r\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n"
+                },
+                {
+                    "date": 1681507700561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n-  const [data, setData] = useState(null)\r\n+  const [data, setData] = useState([])\r\n \r\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n"
+                },
+                {
+                    "date": 1681507919154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,17 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data)\r\n+      setData(response.data.map((year, num) => (\r\n \r\n+        <div key={year}>\r\n+          <div>Year: {year}</div>\r\n+          <div>AVG Dish: {num}</div>\r\n+        </div>\r\n+\r\n+      ))\r\n+\r\n     })\r\n \r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1681507936132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,9 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data.map((year, num) => (\r\n \r\n-        <div key={year}>\r\n-          <div>Year: {year}</div>\r\n-          <div>AVG Dish: {num}</div>\r\n-        </div>\r\n-\r\n-      ))\r\n-\r\n     })\r\n \r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1681508171045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n+      setData(response.data.map(year => <h2>{year.YEAR}...{year.AVG(DISHWASH)}</h2>))\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681508235412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data.map(year => <h2>{year.YEAR}...{year.AVG(DISHWASH)}</h2>))\r\n+      setData(response.data.map(year => <h2>{year.YEAR}...{year.DISHWASHERS}</h2>))\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681508414823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data.map(year => <h2>{year.YEAR}...{year.DISHWASHERS}</h2>))\r\n+      setData(response.data)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681508505607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data)\r\n \r\n     })\r\n \r\n   }\r\n"
+                }
+            ],
+            "date": 1681502578219,
+            "name": "Commit-0",
+            "content": "import './App.css';\r\nimport NavbarComp from './components/NavbarComp';\r\nimport React, {useEffect, useState} from 'react';\r\nimport axios from 'axios'\r\nimport 'bootstrap/dist/css/bootstrap.min.css';\r\nimport { LineChartComp } from './components/LineChartComp';\r\n\r\nfunction App() {\r\n\r\n  \r\n  useEffect(() => {\r\n\r\n    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n\r\n      console.log(response.data);\r\n\r\n    })\r\n\r\n  }, [])\r\n  \r\n  return (\r\n    <>\r\n      <NavbarComp></NavbarComp>\r\n\r\n    </>\r\n  );\r\n}\r\n\r\nexport default App;\r\n"
+        }
+    ]
+}
