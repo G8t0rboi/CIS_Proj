@@ -1,0 +1,22 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/components/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1681502814818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681503710553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n   return (\r\n     <div>\r\n     \r\n         <h1>Home</h1>\r\n-        <LineChartComp></LineChartComp>\r\n \r\n     </div>\r\n   )\r\n }\r\n"
+                }
+            ],
+            "date": 1681502814818,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport { LineChartComp } from './LineChartComp'\r\n\r\nfunction Home() {\r\n    \r\n  return (\r\n    <div>\r\n    \r\n        <h1>Home</h1>\r\n        <LineChartComp></LineChartComp>\r\n\r\n    </div>\r\n  )\r\n}\r\nexport default Home\r\n"
+        }
+    ]
+}

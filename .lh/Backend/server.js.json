@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1680540716928,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681505880328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,14 +24,14 @@\n \r\n \r\n             const connection = await oracledb.getConnection({\r\n \r\n-                user: \"manuel.nunez\",\r\n+                user: \"manuel.nunez\", \r\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                 connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n             })\r\n \r\n-            const result = await connection.execute('SELECT * FROM AHS_POST_2015')\r\n+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n             return result;\r\n \r\n         } catch (error) {\r\n \r\n"
+                },
+                {
+                    "date": 1681506661295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,14 +16,12 @@\n app.get('/students', (req, res) => {\r\n \r\n     async function fetchDataStudents() {\r\n \r\n-        try {\r\n+        try {}\r\n \r\n-            oracledb.initOracleClient({libDir: 'C:\\\\oracle\\\\instantclient_21_9'});\r\n \r\n \r\n-\r\n             const connection = await oracledb.getConnection({\r\n \r\n                 user: \"manuel.nunez\", \r\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n"
+                },
+                {
+                    "date": 1681508203272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,20 +16,18 @@\n app.get('/students', (req, res) => {\r\n \r\n     async function fetchDataStudents() {\r\n \r\n-        try {}\r\n+        try {\r\n \r\n-\r\n-\r\n             const connection = await oracledb.getConnection({\r\n \r\n                 user: \"manuel.nunez\", \r\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                 connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n             })\r\n \r\n-            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n             return result;\r\n \r\n         } catch (error) {\r\n \r\n"
                 }
             ],
             "date": 1680540716928,

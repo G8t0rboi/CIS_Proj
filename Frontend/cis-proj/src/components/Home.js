@@ -1,4 +1,5 @@
 import React from 'react'
+import { LineChartComp } from './LineChartComp'
 
 function Home() {
     
