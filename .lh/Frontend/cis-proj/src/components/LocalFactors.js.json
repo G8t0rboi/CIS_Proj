@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/components/LocalFactors.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1681774880856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1681774880856,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport Dropdown from 'react-bootstrap/Dropdown'\r\n\r\nfunction LocalFactors() {\r\n    return (\r\n        <div>\r\n            <h1>Comparing Local Factors</h1>\r\n            <Dropdown>\r\n                <Dropdown.Toggle variant=\"success\" id=\"dropdown-basic\">\r\n                    Metropolitan Area 1\r\n                </Dropdown.Toggle>\r\n\r\n                <Dropdown.Menu>\r\n                    <Dropdown.Item eventKey=\"New York, NY\">New York, NY</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Los Angeles, CA\">Los Angeles, CA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Chicago, IL\">Chicago, IL</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Dallas, TX\">Dallas, TX</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Philadelphia, PA\">Philadelphia, PA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Houston, TX\">Houston, TX</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Washington, DC\">Washington, DC</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Miami, FL\">Miami, FL</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Atlanta, GA\">Atlanta, GA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Boston, MA\">Boston, MA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"San Francisco, CA\">San Francisco, CA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Detroit, MI\">Detroit, MI</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Phoenix, AZ\">Phoenix, AZ</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Seattle, WA\">Seattle, WA</Dropdown.Item>\r\n                    <Dropdown.Item eventKey=\"Riverside, CA\">Riverside, CA</Dropdown.Item>\r\n                </Dropdown.Menu>\r\n            </Dropdown>\r\n        </div>\r\n    )\r\n}\r\nexport default LocalFactors"
+        }
+    ]
+}

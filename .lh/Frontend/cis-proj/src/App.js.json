@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 84,
+            "activePatchIndex": 91,
             "patches": [
                 {
                     "date": 1681502578219,
@@ -344,6 +344,34 @@
                 {
                     "date": 1681768239694,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n \r\n-      <Button onClick='getData'></Button>\r\n+      <Button onClick={getData}></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681770399093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows)\r\n+      console.log(response)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681770426498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response)\r\n+      console.log(response.data)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681770469280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data)\r\n+      console.log(response.data.rows)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681770482943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows)\r\n+      console.log(response.data.rows.YEAR)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681770493059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows.YEAR)\r\n+      console.log(response.data.rows.year)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681770523920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows.year)\r\n+      console.log(response.data.rows)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681771696206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,10 +38,8 @@\n             <Route path=\"/distributions\" element={<Distributions />}></Route>\r\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n-\r\n-      <Button onClick={getData}></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
                 }
             ],
             "date": 1681502578219,

@@ -39,8 +39,6 @@ function App() {
             <Route path="/localFactors" element={<LocalFactors />}></Route>
         </Routes>
       </Router>
-
-      <Button onClick={getData}></Button>
     </div>
   );
 }
