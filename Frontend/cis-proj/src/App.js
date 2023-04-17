@@ -3,6 +3,7 @@ import NavbarComp from './components/NavbarComp';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { LineChartComp } from './components/LineChartComp';
 import Button from 'react-bootstrap/Button'
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
     <>
       <NavbarComp></NavbarComp>
       <Button onClick={getData}>Get Data</Button>
-      
+      <p>{data}</p>
+
     </>
   );
 }
