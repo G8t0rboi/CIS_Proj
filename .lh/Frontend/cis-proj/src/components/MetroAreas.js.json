@@ -1,0 +1,154 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/components/MetroAreas.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 34,
+            "patches": [
+                {
+                    "date": 1681765405055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681765838359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n+            <Button>Update</Button>\r\n             <LineChartComp></LineChartComp>\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681765858024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from 'react'\r\n import { LineChartComp } from './LineChartComp'\r\n+import Button from 'react-bootstrap/Button'\r\n \r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1681765888344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,14 @@\n import React from 'react'\r\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n \r\n+const random = () => {\r\n+\r\n+\r\n+    \r\n+}\r\n+\r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n"
+                },
+                {
+                    "date": 1681765894737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n const random = () => {\r\n \r\n+    \r\n \r\n-    \r\n }\r\n \r\n function MetropolitanAreas() {\r\n     return (\r\n"
+                },
+                {
+                    "date": 1681765999388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Button from 'react-bootstrap/Button'\r\n \r\n const random = () => {\r\n \r\n-    \r\n+    const random = [300, 300, 300, 300, 300, 300, 300];\r\n \r\n }\r\n \r\n function MetropolitanAreas() {\r\n"
+                },
+                {
+                    "date": 1681766044845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n import React from 'react'\r\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n \r\n+const options=null;\r\n+const data=null;\r\n+\r\n const random = () => {\r\n \r\n     const random = [300, 300, 300, 300, 300, 300, 300];\r\n \r\n"
+                },
+                {
+                    "date": 1681766075639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Button>Update</Button>\r\n-            <LineChartComp></LineChartComp>\r\n+            <LineChartComp data={data}></LineChartComp>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681766109876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n \r\n const options=null;\r\n-const data=null;\r\n+const data=[1, 2, 4, 5, 6, 7];\r\n \r\n const random = () => {\r\n \r\n     const random = [300, 300, 300, 300, 300, 300, 300];\r\n"
+                },
+                {
+                    "date": 1681766145319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n \r\n const options=null;\r\n-const data=[1, 2, 4, 5, 6, 7];\r\n \r\n const random = () => {\r\n \r\n     const random = [300, 300, 300, 300, 300, 300, 300];\r\n@@ -15,9 +14,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Button>Update</Button>\r\n-            <LineChartComp data={data}></LineChartComp>\r\n+            <LineChartComp></LineChartComp>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681766153224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,8 @@\n import React from 'react'\r\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n \r\n-const options=null;\r\n-\r\n-const random = () => {\r\n-\r\n-    const random = [300, 300, 300, 300, 300, 300, 300];\r\n-\r\n-}\r\n-\r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n"
+                },
+                {
+                    "date": 1681766217664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,19 @@\n import React from 'react'\r\n import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n+import {\r\n+    Chart as ChartJS,\r\n+    CategoryScale,\r\n+    LinearScale,\r\n+    PointElement,\r\n+    LineElement,\r\n+    Title,\r\n+    Tooltip,\r\n+    Legend,\r\n+  } from 'chart.js';\r\n+  import { Line } from 'react-chartjs-2';\r\n+  import {faker} from '@faker-js/faker';\r\n \r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1681766228507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,70 @@\n   } from 'chart.js';\r\n   import { Line } from 'react-chartjs-2';\r\n   import {faker} from '@faker-js/faker';\r\n \r\n+  ChartJS.register(\r\n+    CategoryScale,\r\n+    LinearScale,\r\n+    PointElement,\r\n+    LineElement,\r\n+    Title,\r\n+    Tooltip,\r\n+    Legend\r\n+  );\r\n+  \r\n+  export const options = {\r\n+    responsive: true,\r\n+    interaction: {\r\n+      mode: 'index',\r\n+      intersect: false,\r\n+    },\r\n+    stacked: false,\r\n+    plugins: {\r\n+      title: {\r\n+        display: true,\r\n+        text: 'Chart.js Line Chart - Multi Axis',\r\n+      },\r\n+    },\r\n+    scales: {\r\n+      y: {\r\n+        type: 'linear',\r\n+        display: true,\r\n+        position: 'left',\r\n+      },\r\n+      y1: {\r\n+        type: 'linear',\r\n+        display: true,\r\n+        position: 'right',\r\n+        grid: {\r\n+          drawOnChartArea: false,\r\n+        },\r\n+      },\r\n+    },\r\n+  };\r\n+  \r\n+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];\r\n+  \r\n+  export const data = {\r\n+    labels,\r\n+    datasets: [\r\n+      {\r\n+        label: 'Dataset 1',\r\n+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+        borderColor: 'rgb(255, 99, 132)',\r\n+        backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n+        yAxisID: 'y',\r\n+      },\r\n+      {\r\n+        label: 'Dataset 2',\r\n+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+        borderColor: 'rgb(53, 162, 235)',\r\n+        backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n+        yAxisID: 'y1',\r\n+      },\r\n+    ],\r\n+  };\r\n+\r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n"
+                },
+                {
+                    "date": 1681766246467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Button>Update</Button>\r\n-            <LineChartComp></LineChartComp>\r\n+            <Line options={options} data={data} />\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681766262055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React from 'react'\r\n-import { LineChartComp } from './LineChartComp'\r\n import Button from 'react-bootstrap/Button'\r\n import {\r\n     Chart as ChartJS,\r\n     CategoryScale,\r\n"
+                },
+                {
+                    "date": 1681766302354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,8 @@\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n-            <Button>Update</Button>\r\n             <Line options={options} data={data} />\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681766748355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react'\r\n-import Button from 'react-bootstrap/Button'\r\n+import Form from 'react-bootstrap/Form'\r\n import {\r\n     Chart as ChartJS,\r\n     CategoryScale,\r\n     LinearScale,\r\n"
+                },
+                {
+                    "date": 1681766764645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,8 +79,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n+            <Form>Insert Metropolitan Area 1</Form>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681766822114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n-            <Form>Insert Metropolitan Area 1</Form>\r\n+            <Form.Text>Insert Metropolitan Area 1</Form.Text.Text>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681766877293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,8 +79,9 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n+            <Form.Label>Metropolitan Area 1</Form.Label>\r\n             <Form.Text>Insert Metropolitan Area 1</Form.Text.Text>\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681766886408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form.Label>Metropolitan Area 1</Form.Label>\r\n-            <Form.Text>Insert Metropolitan Area 1</Form.Text.Text>\r\n+            \r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767006082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form.Label>Metropolitan Area 1</Form.Label>\r\n-            \r\n+            <Form.control type=\"String\" placeholder=\"Chicago\"/>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767011354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form.Label>Metropolitan Area 1</Form.Label>\r\n-            <Form.control type=\"String\" placeholder=\"Chicago\"/>\r\n+            <Form.control type=\"string\" placeholder=\"Chicago\"/>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767071561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form.Label>Metropolitan Area 1</Form.Label>\r\n-            <Form.control type=\"string\" placeholder=\"Chicago\"/>\r\n+            <Form.control type=\"text\" placeholder=\"Chicago\"/>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767107426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,81 +8,84 @@\n     LineElement,\r\n     Title,\r\n     Tooltip,\r\n     Legend,\r\n-  } from 'chart.js';\r\n-  import { Line } from 'react-chartjs-2';\r\n-  import {faker} from '@faker-js/faker';\r\n+} from 'chart.js';\r\n+import { Line } from 'react-chartjs-2';\r\n+import { faker } from '@faker-js/faker';\r\n \r\n-  ChartJS.register(\r\n+ChartJS.register(\r\n     CategoryScale,\r\n     LinearScale,\r\n     PointElement,\r\n     LineElement,\r\n     Title,\r\n     Tooltip,\r\n     Legend\r\n-  );\r\n-  \r\n-  export const options = {\r\n+);\r\n+\r\n+export const options = {\r\n     responsive: true,\r\n     interaction: {\r\n-      mode: 'index',\r\n-      intersect: false,\r\n+        mode: 'index',\r\n+        intersect: false,\r\n     },\r\n     stacked: false,\r\n     plugins: {\r\n-      title: {\r\n-        display: true,\r\n-        text: 'Chart.js Line Chart - Multi Axis',\r\n-      },\r\n+        title: {\r\n+            display: true,\r\n+            text: 'Chart.js Line Chart - Multi Axis',\r\n+        },\r\n     },\r\n     scales: {\r\n-      y: {\r\n-        type: 'linear',\r\n-        display: true,\r\n-        position: 'left',\r\n-      },\r\n-      y1: {\r\n-        type: 'linear',\r\n-        display: true,\r\n-        position: 'right',\r\n-        grid: {\r\n-          drawOnChartArea: false,\r\n+        y: {\r\n+            type: 'linear',\r\n+            display: true,\r\n+            position: 'left',\r\n         },\r\n-      },\r\n+        y1: {\r\n+            type: 'linear',\r\n+            display: true,\r\n+            position: 'right',\r\n+            grid: {\r\n+                drawOnChartArea: false,\r\n+            },\r\n+        },\r\n     },\r\n-  };\r\n-  \r\n-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];\r\n-  \r\n-  export const data = {\r\n+};\r\n+\r\n+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];\r\n+\r\n+export const data = {\r\n     labels,\r\n     datasets: [\r\n-      {\r\n-        label: 'Dataset 1',\r\n-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-        borderColor: 'rgb(255, 99, 132)',\r\n-        backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n-        yAxisID: 'y',\r\n-      },\r\n-      {\r\n-        label: 'Dataset 2',\r\n-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-        borderColor: 'rgb(53, 162, 235)',\r\n-        backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n-        yAxisID: 'y1',\r\n-      },\r\n+        {\r\n+            label: 'Dataset 1',\r\n+            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+            borderColor: 'rgb(255, 99, 132)',\r\n+            backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n+            yAxisID: 'y',\r\n+        },\r\n+        {\r\n+            label: 'Dataset 2',\r\n+            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+            borderColor: 'rgb(53, 162, 235)',\r\n+            backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n+            yAxisID: 'y1',\r\n+        },\r\n     ],\r\n-  };\r\n+};\r\n \r\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n-            <Form.Label>Metropolitan Area 1</Form.Label>\r\n-            <Form.control type=\"text\" placeholder=\"Chicago\"/>\r\n+            <Form.Control size=\"lg\" type=\"text\" placeholder=\"Large text\" />\r\n+            <br />\r\n+            <Form.Control type=\"text\" placeholder=\"Normal text\" />\r\n+            <br />\r\n+            <Form.Control size=\"sm\" type=\"text\" placeholder=\"Small text\" />\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767127056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,13 +79,11 @@\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n-            <Form.Control size=\"lg\" type=\"text\" placeholder=\"Large text\" />\r\n-            <br />\r\n-            <Form.Control type=\"text\" placeholder=\"Normal text\" />\r\n-            <br />\r\n-            <Form.Control size=\"sm\" type=\"text\" placeholder=\"Small text\" />\r\n+            <Form>\r\n+            \r\n+            </Form>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767152219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form>\r\n-            \r\n+                <Form.Label>Metropolitan Area 1</Form.Label>\r\n             </Form>\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681767201688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,8 +81,9 @@\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form>\r\n                 <Form.Label>Metropolitan Area 1</Form.Label>\r\n+                <Form.Control type='text'></Form.Control>\r\n             </Form>\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681767253031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n             <h1>Comparing Metropolitan Areas</h1>\r\n             <Line options={options} data={data} />\r\n             <Form>\r\n                 <Form.Label>Metropolitan Area 1</Form.Label>\r\n-                <Form.Control type='text'></Form.Control>\r\n+                <Form.Control type='text' placeholder='Chicago'></Form.Control>\r\n             </Form>\r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681767272288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,8 +83,13 @@\n             <Form>\r\n                 <Form.Label>Metropolitan Area 1</Form.Label>\r\n                 <Form.Control type='text' placeholder='Chicago'></Form.Control>\r\n             </Form>\r\n+\r\n+            <Form>\r\n+                <Form.Label>Metropolitan Area 2</Form.Label>\r\n+                <Form.Control type='text' placeholder='Los Angeles'></Form.Control>\r\n+            </Form>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767399123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,9 @@\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n-            <Line options={options} data={data} />\r\n+            \r\n             <Form>\r\n                 <Form.Label>Metropolitan Area 1</Form.Label>\r\n                 <Form.Control type='text' placeholder='Chicago'></Form.Control>\r\n             </Form>\r\n"
+                },
+                {
+                    "date": 1681767404827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,8 +88,10 @@\n             <Form>\r\n                 <Form.Label>Metropolitan Area 2</Form.Label>\r\n                 <Form.Control type='text' placeholder='Los Angeles'></Form.Control>\r\n             </Form>\r\n+\r\n+            \r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767416940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     Legend,\r\n } from 'chart.js';\r\n import { Line } from 'react-chartjs-2';\r\n import { faker } from '@faker-js/faker';\r\n+import Dropdown from 'react-bootstrap/Dropdown';\r\n \r\n ChartJS.register(\r\n     CategoryScale,\r\n     LinearScale,\r\n@@ -89,9 +90,9 @@\n                 <Form.Label>Metropolitan Area 2</Form.Label>\r\n                 <Form.Control type='text' placeholder='Los Angeles'></Form.Control>\r\n             </Form>\r\n \r\n-            \r\n+\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767563068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n                 <Form.Label>Metropolitan Area 2</Form.Label>\r\n                 <Form.Control type='text' placeholder='Los Angeles'></Form.Control>\r\n             </Form>\r\n \r\n-\r\n+            \r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681767581671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,9 @@\n function MetropolitanAreas() {\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n-            \r\n+\r\n             <Form>\r\n                 <Form.Label>Metropolitan Area 1</Form.Label>\r\n                 <Form.Control type='text' placeholder='Chicago'></Form.Control>\r\n             </Form>\r\n@@ -90,9 +90,19 @@\n                 <Form.Label>Metropolitan Area 2</Form.Label>\r\n                 <Form.Control type='text' placeholder='Los Angeles'></Form.Control>\r\n             </Form>\r\n \r\n-            \r\n+            <Dropdown>\r\n+                <Dropdown.Toggle variant=\"success\" id=\"dropdown-basic\">\r\n+                    Dropdown Button\r\n+                </Dropdown.Toggle>\r\n+\r\n+                <Dropdown.Menu>\r\n+                    <Dropdown.Item href=\"#/action-1\">Action</Dropdown.Item>\r\n+                    <Dropdown.Item href=\"#/action-2\">Another action</Dropdown.Item>\r\n+                    <Dropdown.Item href=\"#/action-3\">Something else</Dropdown.Item>\r\n+                </Dropdown.Menu>\r\n+            </Dropdown>\r\n         </div>\r\n     )\r\n }\r\n export default MetropolitanAreas\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1681765405055,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport { LineChartComp } from './LineChartComp'\r\n\r\nfunction MetropolitanAreas() {\r\n    return (\r\n        <div>\r\n            <h1>Comparing Metropolitan Areas</h1>\r\n            <LineChartComp></LineChartComp>\r\n        </div>\r\n    )\r\n}\r\nexport default MetropolitanAreas"
+        }
+    ]
+}

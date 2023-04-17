@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 75,
+            "activePatchIndex": 84,
             "patches": [
                 {
                     "date": 1681502578219,
@@ -308,6 +308,42 @@
                 {
                     "date": 1681764933025,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import NavbarComp from './components/NavbarComp';\r\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n-import { LineChartComp } from './components/LineChartComp';\r\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n@@ -16,18 +15,18 @@\n \r\n       console.log(response.data.rows[0].YEAR)\r\n \r\n     })\r\n+\r\n     \r\n \r\n   }\r\n   \r\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      <p>{data}</p>\r\n-\r\n+      \r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681765143598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,32 +2,54 @@\n import NavbarComp from './components/NavbarComp';\r\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n-import Button from 'react-bootstrap/Button'\r\n+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';\r\n+import Home from './components/Home';\r\n+import About from './components/About';\r\n+import MetropolitanAreas from './components/MetroAreas';\r\n+import Distributions from './components/Distributions';\r\n+import LocalFactors from './components/LocalFactors';\r\n+import { LineChartComp } from './components/LineChartComp';\r\n \r\n+\r\n function App() {\r\n \r\n   const [data, setData] = useState([])\r\n \r\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows[0].YEAR)\r\n+      console.log(response)\r\n \r\n     })\r\n \r\n-    \r\n+  }\r\n \r\n-  }\r\n+  useEffect(() => {\r\n+\r\n+    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n+\r\n+      console.log(response.data);\r\n+\r\n+    })\r\n+\r\n+  }, [])\r\n   \r\n   return (\r\n-    <>\r\n-      <NavbarComp></NavbarComp>\r\n-      <Button onClick={getData}>Get Data</Button>\r\n-      \r\n-    </>\r\n+    <div>\r\n+      <Router>\r\n+        <NavbarComp></NavbarComp>\r\n+        <Routes>\r\n+            <Route exact default path=\"/\" element={<Home />}></Route>\r\n+            <Route path=\"/about\" element={<About />}></Route>\r\n+            <Route path=\"/metropolitanAreas\" element={<MetropolitanAreas />}></Route>\r\n+            <Route path=\"/distributions\" element={<Distributions />}></Route>\r\n+            <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n+        </Routes>\r\n+      </Router>\r\n+    </div>\r\n   );\r\n }\r\n \r\n export default App;\r\n"
+                },
+                {
+                    "date": 1681765152702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,18 +25,8 @@\n     })\r\n \r\n   }\r\n \r\n-  useEffect(() => {\r\n-\r\n-    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n-\r\n-      console.log(response.data);\r\n-\r\n-    })\r\n-\r\n-  }, [])\r\n-  \r\n   return (\r\n     <div>\r\n       <Router>\r\n         <NavbarComp></NavbarComp>\r\n"
+                },
+                {
+                    "date": 1681768027751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n import MetropolitanAreas from './components/MetroAreas';\r\n import Distributions from './components/Distributions';\r\n import LocalFactors from './components/LocalFactors';\r\n import { LineChartComp } from './components/LineChartComp';\r\n+import Button from 'react-bootstrap/Button'\r\n \r\n \r\n function App() {\r\n \r\n@@ -37,8 +38,10 @@\n             <Route path=\"/distributions\" element={<Distributions />}></Route>\r\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n+\r\n+      <Button></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681768040698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n \r\n-      <Button></Button>\r\n+      <Button onClick=getData></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681768054958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n \r\n-      <Button onClick=getData></Button>\r\n+      <Button onClick='getData'></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681768085914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response)\r\n+      console.log(response.data.rows)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681768164459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n   }\r\n \r\n   return (\r\n     <div>\r\n+    <h1>Header</h1>\r\n       <Router>\r\n         <NavbarComp></NavbarComp>\r\n         <Routes>\r\n             <Route exact default path=\"/\" element={<Home />}></Route>\r\n"
+                },
+                {
+                    "date": 1681768173961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n   }\r\n \r\n   return (\r\n     <div>\r\n-    <h1>Header</h1>\r\n       <Router>\r\n         <NavbarComp></NavbarComp>\r\n         <Routes>\r\n             <Route exact default path=\"/\" element={<Home />}></Route>\r\n"
+                },
+                {
+                    "date": 1681768239694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             <Route path=\"/localFactors\" element={<LocalFactors />}></Route>\r\n         </Routes>\r\n       </Router>\r\n \r\n-      <Button onClick='getData'></Button>\r\n+      <Button onClick={getData}></Button>\r\n     </div>\r\n   );\r\n }\r\n \r\n"
                 }
             ],
             "date": 1681502578219,
