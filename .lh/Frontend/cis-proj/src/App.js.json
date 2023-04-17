@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 73,
             "patches": [
                 {
                     "date": 1681502578219,
@@ -104,6 +104,202 @@
                 {
                     "date": 1681508505607,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n-      setData(response.data)\r\n \r\n     })\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681757799755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      <p>{data}</p>\r\n+      <LineChartComp></LineChartComp>\r\n \r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1681758337426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,8 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      <LineChartComp></LineChartComp>\r\n \r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1681760167495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-\r\n+      <LineChartComp></LineChartComp>\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681760528062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,14 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n+    const years = data.map((year) => {\r\n+\r\n+      return year.year;\r\n+\r\n+    })\r\n+\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n@@ -33,9 +39,9 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      <LineChartComp></LineChartComp>\r\n+      \r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681760546794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,10 @@\n       return year.year;\r\n \r\n     })\r\n \r\n+    console.log(years)\r\n+\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n"
+                },
+                {
+                    "date": 1681760640640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     })\r\n \r\n     const years = data.map((year) => {\r\n \r\n-      return year.year;\r\n+      return year.YEAR;\r\n \r\n     })\r\n \r\n     console.log(years)\r\n"
+                },
+                {
+                    "date": 1681760943635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     })\r\n \r\n     const years = data.map((year) => {\r\n \r\n-      return year.YEAR;\r\n+      <div>year.YEAR</div>>; \r\n \r\n     })\r\n \r\n     console.log(years)\r\n"
+                },
+                {
+                    "date": 1681760952718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     })\r\n \r\n     const years = data.map((year) => {\r\n \r\n-      <div>year.YEAR</div>>; \r\n+      return <div>year.YEAR</div>; \r\n \r\n     })\r\n \r\n     console.log(years)\r\n"
+                },
+                {
+                    "date": 1681761185183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,16 +17,10 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n-    const years = data.map((year) => {\r\n+    \r\n \r\n-      return <div>year.YEAR</div>; \r\n-\r\n-    })\r\n-\r\n-    console.log(years)\r\n-\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n"
+                },
+                {
+                    "date": 1681761217597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,19 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n-    \r\n+    return(\r\n \r\n+\r\n+      <div>\r\n+      \r\n+      \r\n+      \r\n+      </div>\r\n+\r\n+    )\r\n+\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n"
+                },
+                {
+                    "date": 1681761651580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,27 +17,20 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n-    return(\r\n+    \r\n \r\n-\r\n-      <div>\r\n-      \r\n-      \r\n-      \r\n-      </div>\r\n-\r\n-    )\r\n-\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n       console.log(response.data);\r\n \r\n+      \r\n+\r\n     })\r\n \r\n   }, [])\r\n   \r\n"
+                },
+                {
+                    "date": 1681761759741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,14 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n+    return(\r\n+\r\n+      <h1>Bruh</h1>\r\n+\r\n+    )\r\n+\r\n     \r\n \r\n   }\r\n \r\n@@ -27,12 +33,8 @@\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n       console.log(response.data);\r\n \r\n-      \r\n-\r\n-    })\r\n-\r\n   }, [])\r\n   \r\n   return (\r\n     <>\r\n"
+                },
+                {
+                    "date": 1681761794194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,14 +17,8 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n-    return(\r\n-\r\n-      <h1>Bruh</h1>\r\n-\r\n-    )\r\n-\r\n     \r\n \r\n   }\r\n \r\n@@ -33,8 +27,10 @@\n     axios.get(\"http://localhost:8080/message\").then((response) => {\r\n \r\n       console.log(response.data);\r\n \r\n+    })\r\n+\r\n   }, [])\r\n   \r\n   return (\r\n     <>\r\n"
+                },
+                {
+                    "date": 1681761804490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,16 @@\n       console.log(response)\r\n \r\n     })\r\n \r\n+    return (\r\n     \r\n+      \r\n \r\n+    )\r\n+\r\n+    \r\n+\r\n   }\r\n \r\n   useEffect(() => {\r\n \r\n"
+                },
+                {
+                    "date": 1681761940404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,15 +15,13 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n+      const years = response.data.map((object) => {object.YEAR})\r\n+\r\n     })\r\n \r\n-    return (\r\n-    \r\n-      \r\n \r\n-    )\r\n \r\n     \r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681761953492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const years = response.data.map((object) => {object.YEAR})\r\n+      const years = response.data.map((object) => object.YEAR)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681761967850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,10 @@\n       console.log(response)\r\n \r\n       const years = response.data.map((object) => object.YEAR)\r\n \r\n+      console.log(years)\r\n+\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762001305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const years = response.data.map((object) => object.YEAR)\r\n+      const years = response.data.map((object) => object[0])\r\n \r\n       console.log(years)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681762097169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response)\r\n+      console.log(response.data)\r\n \r\n       const years = response.data.map((object) => object[0])\r\n \r\n       console.log(years)\r\n"
+                },
+                {
+                    "date": 1681762185226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      const years = response.data.map((object) => object[0])\r\n+      const years = Object.keys(response.data)\r\n \r\n       console.log(years)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681762329865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      const years = Object.keys(response.data)\r\n+      const years = Object.keys(response.data).map((key) => { response.data[key].map((item) => item.YEAR) })\r\n \r\n       console.log(years)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681762428678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,12 +15,15 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      const years = Object.keys(response.data).map((key) => { response.data[key].map((item) => item.YEAR) })\r\n+      for(var i = 0; i < response.data.length; i++){\r\n+        for(var j = 0; j < response.data[i].length; j++){\r\n+    \r\n+            console.log(response.data[i][j]);\r\n+        }\r\n+    }\r\n \r\n-      console.log(years)\r\n-\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762500407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n       for(var i = 0; i < response.data.length; i++){\r\n         for(var j = 0; j < response.data[i].length; j++){\r\n     \r\n             console.log(response.data[i][j]);\r\n+            console.log(\"Year: \" + response.data[i] + \"Average Dishwashers: \" + response.data(j))\r\n         }\r\n     }\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681762526704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data)\r\n+      //console.log(response.data)\r\n \r\n       for(var i = 0; i < response.data.length; i++){\r\n         for(var j = 0; j < response.data[i].length; j++){\r\n     \r\n"
+                },
+                {
+                    "date": 1681762556474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       //console.log(response.data)\r\n \r\n+      console.log(\"1\")\r\n       for(var i = 0; i < response.data.length; i++){\r\n         for(var j = 0; j < response.data[i].length; j++){\r\n     \r\n             console.log(response.data[i][j]);\r\n"
+                },
+                {
+                    "date": 1681762565521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n       //console.log(response.data)\r\n \r\n       console.log(\"1\")\r\n       for(var i = 0; i < response.data.length; i++){\r\n+        console.log(\"2\")\r\n         for(var j = 0; j < response.data[i].length; j++){\r\n     \r\n             console.log(response.data[i][j]);\r\n             console.log(\"Year: \" + response.data[i] + \"Average Dishwashers: \" + response.data(j))\r\n"
+                },
+                {
+                    "date": 1681762572787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       console.log(\"1\")\r\n       for(var i = 0; i < response.data.length; i++){\r\n         console.log(\"2\")\r\n         for(var j = 0; j < response.data[i].length; j++){\r\n-    \r\n+            console.log(\"3\")\r\n             console.log(response.data[i][j]);\r\n             console.log(\"Year: \" + response.data[i] + \"Average Dishwashers: \" + response.data(j))\r\n         }\r\n     }\r\n"
+                },
+                {
+                    "date": 1681762598430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      //console.log(response.data)\r\n+      console.log(response.data)\r\n \r\n       console.log(\"1\")\r\n       for(var i = 0; i < response.data.length; i++){\r\n         console.log(\"2\")\r\n"
+                },
+                {
+                    "date": 1681762674543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,18 +15,12 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      console.log(\"1\")\r\n-      for(var i = 0; i < response.data.length; i++){\r\n-        console.log(\"2\")\r\n-        for(var j = 0; j < response.data[i].length; j++){\r\n-            console.log(\"3\")\r\n-            console.log(response.data[i][j]);\r\n-            console.log(\"Year: \" + response.data[i] + \"Average Dishwashers: \" + response.data(j))\r\n-        }\r\n-    }\r\n+      \r\n \r\n+      console.log(years)\r\n+\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762886939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      \r\n+      const dataArray = response.data[1];\r\n \r\n-      console.log(years)\r\n+      console.log(dataArray)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762905945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data)\r\n \r\n-      const dataArray = response.data[1];\r\n+     // const dataArray = response.data[1];\r\n \r\n-      console.log(dataArray)\r\n+      //console.log(dataArray)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762956051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,14 +13,12 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data)\r\n+      console.log(response)\r\n \r\n-     // const dataArray = response.data[1];\r\n+    \r\n \r\n-      //console.log(dataArray)\r\n-\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762981541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-    \r\n+      const dataArray = response.data[1]\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681762989505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,10 @@\n       console.log(response)\r\n \r\n       const dataArray = response.data[1]\r\n \r\n+      console.log(dataArray)\r\n+\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681763005592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.data[1]\r\n+      const dataArray = response.data[0]\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763131304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.data[0]\r\n+      const dataArray = response.data.map((data) => data.rows)\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763180070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.data.map((data) => data.rows)\r\n+      const dataArray = response.map((data) => data.rows)\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763241502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.map((data) => data.rows)\r\n+      const dataArray = response.rows.map((data) => data.YEAR)\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763257278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.rows.map((data) => data.YEAR)\r\n+      const dataArray = response.rows.map((data) => data)\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763409230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.rows.map((data) => data)\r\n+      const dataArray = response.map((data) => data)\r\n \r\n       console.log(dataArray)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681763734387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,12 +15,8 @@\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response)\r\n \r\n-      const dataArray = response.map((data) => data)\r\n-\r\n-      console.log(dataArray)\r\n-\r\n     })\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681763841461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response)\r\n+      console.log(response.data[1])\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681763849050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data[1])\r\n+      console.log(response.data)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681763860122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data)\r\n+      console.log(response.data.rows)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681764487410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import NavbarComp from './components/NavbarComp';\r\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n-import { LineChartComp } from './components/LineChartComp';\r\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n"
+                },
+                {
+                    "date": 1681764513714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,18 +21,8 @@\n \r\n     \r\n \r\n   }\r\n-\r\n-  useEffect(() => {\r\n-\r\n-    axios.get(\"http://localhost:8080/message\").then((response) => {\r\n-\r\n-      console.log(response.data);\r\n-\r\n-    })\r\n-\r\n-  }, [])\r\n   \r\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n"
+                },
+                {
+                    "date": 1681764597125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows)\r\n+      console.log(response.data.rows[0])\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681764617518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   const getData = () => {\r\n \r\n     axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows[0])\r\n+      console.log(response.data.rows[0].YEAR)\r\n \r\n     })\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681764681812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,8 @@\n \r\n       console.log(response.data.rows[0].YEAR)\r\n \r\n     })\r\n-\r\n-\r\n-\r\n     \r\n \r\n   }\r\n   \r\n"
                 }
             ],
             "date": 1681502578219,

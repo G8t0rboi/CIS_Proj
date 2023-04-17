@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1680540716928,
@@ -20,6 +20,18 @@
                 {
                     "date": 1681508203272,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,20 +16,18 @@\n app.get('/students', (req, res) => {\r\n \r\n     async function fetchDataStudents() {\r\n \r\n-        try {}\r\n+        try {\r\n \r\n-\r\n-\r\n             const connection = await oracledb.getConnection({\r\n \r\n                 user: \"manuel.nunez\", \r\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                 connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n             })\r\n \r\n-            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n             return result;\r\n \r\n         } catch (error) {\r\n \r\n"
+                },
+                {
+                    "date": 1681757299395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                 connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n             })\r\n \r\n-            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')\r\n+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC')\r\n             return result;\r\n \r\n         } catch (error) {\r\n \r\n"
+                },
+                {
+                    "date": 1681763698118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n                 password: \"SJ3vtvEHEFavwAGrAwjUQ2XT\",\r\n                 connectString: \"(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))\"\r\n             })\r\n \r\n-            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC')\r\n+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC', [], { outFormat: oracledb.OUT_FORMAT_OBJECT })\r\n             return result;\r\n \r\n         } catch (error) {\r\n \r\n"
+                },
+                {
+                    "date": 1681764564613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,15 +5,8 @@\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n-\r\n-app.get(\"/api\", (req, res) => {\r\n-\r\n-    res.send('Hello, World!')\r\n-\r\n-})\r\n-\r\n app.get('/students', (req, res) => {\r\n \r\n     async function fetchDataStudents() {\r\n \r\n@@ -50,11 +43,5 @@\n         })\r\n \r\n })\r\n \r\n-app.get('/message', (req,res) => {\r\n-\r\n-    res.json({message: \"Hello from server!\"})\r\n-\r\n-})\r\n-\r\n app.listen(8080, () => { console.log(\"Server started on port 8080\") })\r\n"
                 }
             ],
             "date": 1680540716928,

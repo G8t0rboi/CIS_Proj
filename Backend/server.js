@@ -6,13 +6,6 @@ const app = express();
 
 app.use(cors());
 
-
-app.get("/api", (req, res) => {
-
-    res.send('Hello, World!')
-
-})
-
 app.get('/students', (req, res) => {
 
     async function fetchDataStudents() {
@@ -26,7 +19,7 @@ app.get('/students', (req, res) => {
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
-            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS_POST_2015 GROUP BY YEAR ORDER BY YEAR ASC')
+            const result = await connection.execute('SELECT YEAR, AVG(DISHWASH) AS Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC', [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
             return result;
 
         } catch (error) {
@@ -48,12 +41,6 @@ app.get('/students', (req, res) => {
             res.send("bru")
 
         })
-
-})
-
-app.get('/message', (req,res) => {
-
-    res.json({message: "Hello from server!"})
 
 })
 
