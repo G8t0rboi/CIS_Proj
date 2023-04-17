@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 73,
+            "activePatchIndex": 75,
             "patches": [
                 {
                     "date": 1681502578219,
@@ -300,6 +300,14 @@
                 {
                     "date": 1681764681812,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,8 @@\n \r\n       console.log(response.data.rows[0].YEAR)\r\n \r\n     })\r\n-\r\n-\r\n-\r\n     \r\n \r\n   }\r\n   \r\n"
+                },
+                {
+                    "date": 1681764831147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import NavbarComp from './components/NavbarComp';\r\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n+import { LineChartComp } from './components/LineChartComp';\r\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n@@ -23,9 +24,10 @@\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      \r\n+      <p>{data}</p>\r\n+\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681764933025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import NavbarComp from './components/NavbarComp';\r\n import React, {useEffect, useState} from 'react';\r\n import axios from 'axios'\r\n import 'bootstrap/dist/css/bootstrap.min.css';\r\n-import { LineChartComp } from './components/LineChartComp';\r\n import Button from 'react-bootstrap/Button'\r\n \r\n function App() {\r\n \r\n@@ -16,18 +15,18 @@\n \r\n       console.log(response.data.rows[0].YEAR)\r\n \r\n     })\r\n+\r\n     \r\n \r\n   }\r\n   \r\n   return (\r\n     <>\r\n       <NavbarComp></NavbarComp>\r\n       <Button onClick={getData}>Get Data</Button>\r\n-      <p>{data}</p>\r\n-\r\n+      \r\n     </>\r\n   );\r\n }\r\n \r\n"
                 }
             ],
             "date": 1681502578219,
