@@ -23,7 +23,7 @@ const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Comparing Two Metropolitan Areas',
+      text: 'Metropolitian Area Comparision Line Chart',
     },
   },
   scales: {
@@ -41,6 +41,14 @@ const options = {
       },
     },
   },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      autoPadding: true
+  }
+},
+
 };
 
 const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
@@ -64,6 +72,6 @@ const data = {
   ]
 };
 
-export function LineChartComp() {
-  return <Line options={options} data={data} />;
+export function LineChartComp(d) {
+  return <Line options={options} data={d} />;
 }

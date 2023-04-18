@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import { LineChartComp } from './LineChartComp';
 
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, } from 'chart.js';
 import { Line } from 'react-chartjs-2';
@@ -204,8 +205,14 @@ function MetropolitanAreas() {
         })
     }
 
+        
+
     return (
         <>
+
+        
+        
+            
             <div style={{
                 top: "100%",
                 left: "15%",
@@ -280,6 +287,9 @@ function MetropolitanAreas() {
             }}>
                 <LineChartComp></LineChartComp>
             </div>
+
+            
+        
 
         </>
     )
