@@ -81,23 +81,23 @@ export const data = {
 
 
 function MetropolitanAreas() {
-    const [metro1,setMetro1] = useState('');
-    const metroOne=(e)=> {
+    const [metro1, setMetro1] = useState('');
+    const metroOne = (e) => {
 
         console.log(e)
         setMetro1(e)
 
     }
 
-    const [metro2,setMetro2] = useState('');
-    const metroTwo=(e)=> {
+    const [metro2, setMetro2] = useState('');
+    const metroTwo = (e) => {
 
         console.log(e)
         setMetro2(e)
     }
 
-    const [nation,setNation] = useState('');
-    const nationChange=(e)=> {
+    const [nation, setNation] = useState('');
+    const nationChange = (e) => {
 
         console.log(e)
         setNation(e)
@@ -105,20 +105,20 @@ function MetropolitanAreas() {
 
     const submit = () => {
 
-        axios.post("http://localhost:8080/results",{ 
-            
+        axios.post("http://localhost:8080/results", {
+
             x: 'Household Rating',
             y: 'GDP',
             z: metro1,
             h: metro2,
             stat: 'mean'
-        
-        }
-        
-        )
-    
-      }
 
+        }
+
+        ).then(res => console.log(res.data.rows))
+
+    }
+    
     return (
         <div>
             <h1>Comparing Metropolitan Areas</h1>
@@ -153,21 +153,21 @@ function MetropolitanAreas() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                <Dropdown.Item eventKey="New York, NY">New York, NY</Dropdown.Item>
-                <Dropdown.Item eventKey="Los Angeles, CA">Los Angeles, CA</Dropdown.Item>
-                <Dropdown.Item eventKey="Chicago, IL">Chicago, IL</Dropdown.Item>
-                <Dropdown.Item eventKey="Dallas, TX">Dallas, TX</Dropdown.Item>
-                <Dropdown.Item eventKey="Philadelphia, PA">Philadelphia, PA</Dropdown.Item>
-                <Dropdown.Item eventKey="Houston, TX">Houston, TX</Dropdown.Item>
-                <Dropdown.Item eventKey="Washington, DC">Washington, DC</Dropdown.Item>
-                <Dropdown.Item eventKey="Miami, FL">Miami, FL</Dropdown.Item>
-                <Dropdown.Item eventKey="Atlanta, GA">Atlanta, GA</Dropdown.Item>
-                <Dropdown.Item eventKey="Boston, MA">Boston, MA</Dropdown.Item>
-                <Dropdown.Item eventKey="San Francisco, CA">San Francisco, CA</Dropdown.Item>
-                <Dropdown.Item eventKey="Detroit, MI">Detroit, MI</Dropdown.Item>
-                <Dropdown.Item eventKey="Phoenix, AZ">Phoenix, AZ</Dropdown.Item>
-                <Dropdown.Item eventKey="Seattle, WA">Seattle, WA</Dropdown.Item>
-                <Dropdown.Item eventKey="Riverside, CA">Riverside, CA</Dropdown.Item>
+                    <Dropdown.Item eventKey="New York, NY">New York, NY</Dropdown.Item>
+                    <Dropdown.Item eventKey="Los Angeles, CA">Los Angeles, CA</Dropdown.Item>
+                    <Dropdown.Item eventKey="Chicago, IL">Chicago, IL</Dropdown.Item>
+                    <Dropdown.Item eventKey="Dallas, TX">Dallas, TX</Dropdown.Item>
+                    <Dropdown.Item eventKey="Philadelphia, PA">Philadelphia, PA</Dropdown.Item>
+                    <Dropdown.Item eventKey="Houston, TX">Houston, TX</Dropdown.Item>
+                    <Dropdown.Item eventKey="Washington, DC">Washington, DC</Dropdown.Item>
+                    <Dropdown.Item eventKey="Miami, FL">Miami, FL</Dropdown.Item>
+                    <Dropdown.Item eventKey="Atlanta, GA">Atlanta, GA</Dropdown.Item>
+                    <Dropdown.Item eventKey="Boston, MA">Boston, MA</Dropdown.Item>
+                    <Dropdown.Item eventKey="San Francisco, CA">San Francisco, CA</Dropdown.Item>
+                    <Dropdown.Item eventKey="Detroit, MI">Detroit, MI</Dropdown.Item>
+                    <Dropdown.Item eventKey="Phoenix, AZ">Phoenix, AZ</Dropdown.Item>
+                    <Dropdown.Item eventKey="Seattle, WA">Seattle, WA</Dropdown.Item>
+                    <Dropdown.Item eventKey="Riverside, CA">Riverside, CA</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
