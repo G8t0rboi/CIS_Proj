@@ -78,8 +78,14 @@ function MetropolitanAreas() {
         })
     }
 
+        
+
     return (
         <>
+
+        
+        
+            
             <div style={{
                 top: "100%",
                 left: "15%",
@@ -150,6 +156,7 @@ function MetropolitanAreas() {
             <p>{data}</p>
 
             
+        
 
         </>
     )
