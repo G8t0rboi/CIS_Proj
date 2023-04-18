@@ -95,6 +95,60 @@ app.get('/MetroAreas', (req, res) => {
 
 })
 
+
+
+
+
+app.get('/Distributions', (req, res) => {
+    const X = req.query.X
+    const Y = req.query.Y
+    const Z = req.query.Z
+    const Type = req.query.type
+
+    console.log(X)
+    console.log(Y)
+    console.log(Z)
+    console.log(Type)
+
+    const statement = pieChartsQueries(X, Z, Y, Type)
+    console.log(statement)
+
+    async function fetchData() {
+ 
+        try {
+
+            const connection = await oracledb.getConnection({
+
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
+            })
+
+            const result = await connection.execute(statement, [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
+            return result;
+
+        } catch (error) {
+
+            console.error(error);
+            return error;
+
+        }
+
+    }
+
+    fetchData().then(dbRes => {
+
+        res.send(dbRes)
+
+    })
+        .catch(error => {
+
+            res.send("bru")
+
+        })
+
+})
+
 app.listen(8080, () => { console.log("Server started on port 8080") })
 
 
@@ -233,9 +287,9 @@ function localFactorsQueries(x, y, z) {
 
 function pieChartsQueries(x, z, y, type) {
     if (type == 'categorical') {
-        + 'SELECT cats.Category, TRUNC((cats.V1/total.V2),3) as PERCENTAGE '
+        return( 'SELECT cats.Category, TRUNC((cats.V1/total.V2),3) as PERCENTAGE '
             + 'FROM '
-            + '(SELECT ' + x + ' as Category, COUNT(X) AS V1 '
+            + '(SELECT ' + x + ' as Category, COUNT(' + x + ') AS V1 '
             + 'FROM AHS '
             + 'WHERE ' + x + ' IS NOT NULL AND OMB13CBSA = \'\'\'' + z + '\'\'\' AND YEAR = ' + y + ' '
             + 'GROUP BY ' + x + ' '
@@ -244,11 +298,11 @@ function pieChartsQueries(x, z, y, type) {
             + '(SELECT COUNT(' + x + ') AS V2 '
             + 'FROM AHS '
             + 'WHERE ' + x + ' IS NOT NULL AND OMB13CBSA = \'\'\'' + z + '\'\'\' AND YEAR = ' + y + ' '
-            + ') total; '
+            + ') total ')
 
     }
-    else if (type = 'numerical') {
-        + 'With maxs(r) as '
+    else if (type == 'numerical') {
+        return('With maxs(r) as '
             + '(Select unique max(' + x + ') from AHS) '
             + 'SELECT Ranges, TRUNC((cats.X/total.Y),3) as PERCENTAGE '
             + 'from '
@@ -281,7 +335,7 @@ function pieChartsQueries(x, z, y, type) {
             + '(SELECT COUNT(' + x + ') AS Y '
             + 'FROM AHS '
             + 'WHERE ' + x + ' IS NOT NULL AND OMB13CBSA = \'\'\'' + z + '\'\'\' AND YEAR = ' + y + ' '
-            + ') total; '
+            + ') total')
     }
 }
 
