@@ -5,7 +5,6 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
-oracledb.initOracleClient({libDir: '/Users/manuelnunezmartinez/Downloads/instantclient_19_8'});
 
 app.get('/testPage', (req, res) => {
 
@@ -92,6 +91,8 @@ app.get('/MetroAreas', (req, res) => {
             res.send("bru")
 
         })
+
+        res.end;
 
 })
 

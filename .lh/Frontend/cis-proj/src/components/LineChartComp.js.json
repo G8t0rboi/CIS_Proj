@@ -1,0 +1,150 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/components/LineChartComp.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 33,
+            "patches": [
+                {
+                    "date": 1681841553644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681842150984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,8 +73,8 @@\n     },\r\n   ],\r\n };\r\n \r\n-export function LineChartComp() {\r\n-  return <Line options={options} data={data} />;\r\n+export function LineChartComp(d) {\r\n+  return <Line options={options} data={d} />;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842266829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,7 +74,7 @@\n   ],\r\n };\r\n \r\n export function LineChartComp(d) {\r\n-  return <Line options={options} data={d} />;\r\n+  return <Line options={options} data={this.props.data} />;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842313132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,7 +74,18 @@\n   ],\r\n };\r\n \r\n export function LineChartComp(d) {\r\n-  return <Line options={options} data={this.props.data} />;\r\n+\r\n+  if ( this.props.data == null ) {\r\n+\r\n+    return <Line options={options} data={d} />;\r\n+\r\n+  }\r\n+  else {\r\n+\r\n+    return <Line options={options} data={this.props.data} />;\r\n+\r\n+  }\r\n+  \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842327396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,13 +73,13 @@\n     },\r\n   ],\r\n };\r\n \r\n-export function LineChartComp(d) {\r\n+export function LineChartComp() {\r\n \r\n   if ( this.props.data == null ) {\r\n \r\n-    return <Line options={options} data={d} />;\r\n+    return <Line options={options} data={data} />;\r\n \r\n   }\r\n   else {\r\n \r\n"
+                },
+                {
+                    "date": 1681842398389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,19 +73,8 @@\n     },\r\n   ],\r\n };\r\n \r\n-export function LineChartComp() {\r\n-\r\n-  if ( this.props.data == null ) {\r\n-\r\n-    return <Line options={options} data={data} />;\r\n-\r\n-  }\r\n-  else {\r\n-\r\n-    return <Line options={options} data={this.props.data} />;\r\n-\r\n-  }\r\n-  \r\n+export function LineChartComp({d}) {\r\n+  return <Line options={options} data={d} />;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842637149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,7 +74,7 @@\n   ],\r\n };\r\n \r\n export function LineChartComp({d}) {\r\n-  return <Line options={options} data={d} />;\r\n+  return <Line options={options} data={data} />;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842694534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,25 +56,23 @@\n \r\n export const data = {\r\n   labels,\r\n   datasets: [\r\n-    {\r\n-      label: 'Dataset 1',\r\n-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-      borderColor: 'rgb(255, 99, 132)',\r\n-      backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n-      yAxisID: 'y',\r\n-    },\r\n-    {\r\n-      label: 'Dataset 2',\r\n-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-      borderColor: 'rgb(53, 162, 235)',\r\n-      backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n-      yAxisID: 'y1',\r\n-    },\r\n+\r\n   ],\r\n };\r\n \r\n export function LineChartComp({d}) {\r\n-  return <Line options={options} data={data} />;\r\n+\r\n+  if ( d == null ) {\r\n+\r\n+    return <Line options={options} data={data} />;\r\n+\r\n+  }\r\n+  else {\r\n+\r\n+    return <Line options={options} data={d} />;\r\n+\r\n+  }\r\n+  \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681842818437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n   stacked: false,\r\n   plugins: {\r\n     title: {\r\n       display: true,\r\n-      text: 'Chart.js Line Chart - Multi Axis',\r\n+      text: 'Comparing Two Metropolitan Areas',\r\n     },\r\n   },\r\n   scales: {\r\n     y: {\r\n"
+                },
+                {
+                    "date": 1681842959781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,15 +53,10 @@\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n \r\n-export const data = {\r\n-  labels,\r\n-  datasets: [\r\n+export const data = this.props.data\r\n \r\n-  ],\r\n-};\r\n-\r\n export function LineChartComp({d}) {\r\n \r\n   if ( d == null ) {\r\n \r\n"
+                },
+                {
+                    "date": 1681843143950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,10 +53,8 @@\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n \r\n-export const data = this.props.data\r\n-\r\n export function LineChartComp({d}) {\r\n \r\n   if ( d == null ) {\r\n \r\n"
+                },
+                {
+                    "date": 1681843160534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,18 +54,7 @@\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n \r\n export function LineChartComp({d}) {\r\n-\r\n-  if ( d == null ) {\r\n-\r\n-    return <Line options={options} data={data} />;\r\n-\r\n-  }\r\n-  else {\r\n-\r\n     return <Line options={options} data={d} />;\r\n-\r\n-  }\r\n-  \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681843244519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,24 @@\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n \r\n-export function LineChartComp({d}) {\r\n-    return <Line options={options} data={d} />;\r\n+export default class LineChartComp extends React.Component {\r\n+\r\n+\r\n+  render() {\r\n+\r\n+    return (\r\n+\r\n+      <div>\r\n+      \r\n+      <Line options={options} data={d} />;\r\n+\r\n+      </div>\r\n+\r\n+\r\n+    )\r\n+\r\n+  }\r\n+\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681843312681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={d} />;\r\n+      <Line options={options} data={this.props.data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681843335497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={this.props.data} />;\r\n+        <Line options={options} data={this.props.data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681843678987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,27 @@\n   },\r\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n-\r\n+export const data = {\r\n+  labels,\r\n+  datasets: [\r\n+    {\r\n+      label: 'Dataset 1',\r\n+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+      borderColor: 'rgb(255, 99, 132)',\r\n+      backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n+      yAxisID: 'y',\r\n+    },\r\n+    {\r\n+      label: 'Dataset 2',\r\n+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n+      borderColor: 'rgb(53, 162, 235)',\r\n+      backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n+      yAxisID: 'y1',\r\n+    },\r\n+  ],\r\n+};\r\n export default class LineChartComp extends React.Component {\r\n \r\n \r\n   render() {\r\n@@ -62,9 +80,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-        <Line options={options} data={this.props.data} />;\r\n+      <Line options={options} data={data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681843706237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={data} />;\r\n+      <Line options={options} data={this.props.data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681844168470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,22 +56,22 @@\n export const data = {\r\n   labels,\r\n   datasets: [\r\n     {\r\n-      label: 'Dataset 1',\r\n-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-      borderColor: 'rgb(255, 99, 132)',\r\n-      backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n-      yAxisID: 'y',\r\n+      label: \"Dataset 1\",\r\n+      data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),\r\n+      borderColor: \"rgb(255, 99, 132)\",\r\n+      backgroundColor: \"rgba(255, 99, 132, 0.5)\",\r\n+      yAxisID: \"y\"\r\n     },\r\n     {\r\n-      label: 'Dataset 2',\r\n-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n-      borderColor: 'rgb(53, 162, 235)',\r\n-      backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n-      yAxisID: 'y1',\r\n-    },\r\n-  ],\r\n+      label: \"Dataset 2\",\r\n+      data: [1, 2, 3, 4, 5, 6],\r\n+      borderColor: \"rgb(53, 162, 235)\",\r\n+      backgroundColor: \"rgba(53, 162, 235, 0.5)\",\r\n+      yAxisID: \"y1\"\r\n+    }\r\n+  ]\r\n };\r\n export default class LineChartComp extends React.Component {\r\n \r\n \r\n@@ -80,9 +80,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={this.props.data} />;\r\n+      <Line options={options} data={data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681844277187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n       yAxisID: \"y\"\r\n     },\r\n     {\r\n       label: \"Dataset 2\",\r\n-      data: [1, 2, 3, 4, 5, 6],\r\n+      data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),\r\n       borderColor: \"rgb(53, 162, 235)\",\r\n       backgroundColor: \"rgba(53, 162, 235, 0.5)\",\r\n       yAxisID: \"y1\"\r\n     }\r\n"
+                },
+                {
+                    "date": 1681844292295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={data} />;\r\n+      <Line options={options} data={this.props.data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681844494934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n       yAxisID: \"y\"\r\n     },\r\n     {\r\n       label: \"Dataset 2\",\r\n-      data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),\r\n+      data: this.props.data,\r\n       borderColor: \"rgb(53, 162, 235)\",\r\n       backgroundColor: \"rgba(53, 162, 235, 0.5)\",\r\n       yAxisID: \"y1\"\r\n     }\r\n@@ -80,9 +80,9 @@\n     return (\r\n \r\n       <div>\r\n       \r\n-      <Line options={options} data={this.props.data} />;\r\n+      <Line options={options} data={data} />;\r\n \r\n       </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1681844819954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n       yAxisID: \"y\"\r\n     },\r\n     {\r\n       label: \"Dataset 2\",\r\n-      data: this.props.data,\r\n+      data: [0, 1, 2, 3, 4, 5],\r\n       borderColor: \"rgb(53, 162, 235)\",\r\n       backgroundColor: \"rgba(53, 162, 235, 0.5)\",\r\n       yAxisID: \"y1\"\r\n     }\r\n"
+                },
+                {
+                    "date": 1681845079299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   Tooltip,\r\n   Legend\r\n );\r\n \r\n-export const options = {\r\n+const options = {\r\n   responsive: true,\r\n   interaction: {\r\n     mode: 'index',\r\n     intersect: false,\r\n"
+                },
+                {
+                    "date": 1681845091282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n   },\r\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n-export const data = {\r\n+const data = {\r\n   labels,\r\n   datasets: [\r\n     {\r\n       label: \"Dataset 1\",\r\n@@ -71,24 +71,5 @@\n       yAxisID: \"y1\"\r\n     }\r\n   ]\r\n };\r\n-export default class LineChartComp extends React.Component {\r\n \r\n-\r\n-  render() {\r\n-\r\n-    return (\r\n-\r\n-      <div>\r\n-      \r\n-      <Line options={options} data={data} />;\r\n-\r\n-      </div>\r\n-\r\n-\r\n-    )\r\n-\r\n-  }\r\n-\r\n-}\r\n-\r\n"
+                },
+                {
+                    "date": 1681845113482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,4 +72,9 @@\n     }\r\n   ]\r\n };\r\n \r\n+class LineChartComp extends React.Component {\r\n+\r\n+\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1681845191016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,7 +74,22 @@\n };\r\n \r\n class LineChartComp extends React.Component {\r\n \r\n+  constructor(props) {\r\n \r\n+    super(props)\r\n+    this.state = {\r\n \r\n+      chartData: {\r\n+\r\n+        labels: ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'],\r\n+        datasets: []\r\n+\r\n+\r\n+      }\r\n+\r\n+    }\r\n+\r\n+  }\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1681845287905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,5 +91,15 @@\n     }\r\n \r\n   }\r\n \r\n+  render() {\r\n+\r\n+    return( \r\n+\r\n+      <Line options={options} data={data} />\r\n+\r\n+    )\r\n+\r\n+  }\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1681845340256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,4 +102,6 @@\n \r\n   }\r\n \r\n }\r\n+\r\n+export default LineChartComp;\r\n"
+                },
+                {
+                    "date": 1681845502599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n   render() {\r\n \r\n     return( \r\n \r\n-      <Line options={options} data={data} />\r\n+      <Line options={options} data={this.state.chartData} />\r\n \r\n     )\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681845718649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,8 +91,14 @@\n     }\r\n \r\n   }\r\n \r\n+  static defaultProps = {\r\n+\r\n+    data: []\r\n+\r\n+  }\r\n+\r\n   render() {\r\n \r\n     return( \r\n \r\n"
+                },
+                {
+                    "date": 1681846538972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,16 +79,10 @@\n \r\n     super(props)\r\n     this.state = {\r\n \r\n-      chartData: {\r\n+      chartData: props.chartData\r\n \r\n-        labels: ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'],\r\n-        datasets: []\r\n-\r\n-\r\n-      }\r\n-\r\n     }\r\n \r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1681846799213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n   render() {\r\n \r\n     return( \r\n \r\n-      <Line options={options} data={this.state.chartData} />\r\n+      <Line options={options} data={data} />\r\n \r\n     )\r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1681846830046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,36 +72,7 @@\n     }\r\n   ]\r\n };\r\n \r\n-class LineChartComp extends React.Component {\r\n-\r\n-  constructor(props) {\r\n-\r\n-    super(props)\r\n-    this.state = {\r\n-\r\n-      chartData: props.chartData\r\n-\r\n-    }\r\n-\r\n-  }\r\n-\r\n-  static defaultProps = {\r\n-\r\n-    data: []\r\n-\r\n-  }\r\n-\r\n-  render() {\r\n-\r\n-    return( \r\n-\r\n-      <Line options={options} data={data} />\r\n-\r\n-    )\r\n-\r\n-  }\r\n-\r\n+export function LineChartComp() {\r\n+  return <Line options={options} data={data} />;\r\n }\r\n-\r\n-export default LineChartComp;\r\n"
+                },
+                {
+                    "date": 1681847114044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,6 @@\n import React from 'react'\r\n-import {\r\n-  Chart as ChartJS,\r\n-  CategoryScale,\r\n-  LinearScale,\r\n-  PointElement,\r\n-  LineElement,\r\n-  Title,\r\n-  Tooltip,\r\n-  Legend,\r\n-} from 'chart.js';\r\n+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,} from 'chart.js';\r\n import { Line } from 'react-chartjs-2';\r\n import {faker} from '@faker-js/faker';\r\n \r\n ChartJS.register(\r\n"
+                }
+            ],
+            "date": 1681841553644,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport {\r\n  Chart as ChartJS,\r\n  CategoryScale,\r\n  LinearScale,\r\n  PointElement,\r\n  LineElement,\r\n  Title,\r\n  Tooltip,\r\n  Legend,\r\n} from 'chart.js';\r\nimport { Line } from 'react-chartjs-2';\r\nimport {faker} from '@faker-js/faker';\r\n\r\nChartJS.register(\r\n  CategoryScale,\r\n  LinearScale,\r\n  PointElement,\r\n  LineElement,\r\n  Title,\r\n  Tooltip,\r\n  Legend\r\n);\r\n\r\nexport const options = {\r\n  responsive: true,\r\n  interaction: {\r\n    mode: 'index',\r\n    intersect: false,\r\n  },\r\n  stacked: false,\r\n  plugins: {\r\n    title: {\r\n      display: true,\r\n      text: 'Chart.js Line Chart - Multi Axis',\r\n    },\r\n  },\r\n  scales: {\r\n    y: {\r\n      type: 'linear',\r\n      display: true,\r\n      position: 'left',\r\n    },\r\n    y1: {\r\n      type: 'linear',\r\n      display: true,\r\n      position: 'right',\r\n      grid: {\r\n        drawOnChartArea: false,\r\n      },\r\n    },\r\n  },\r\n};\r\n\r\nconst labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n\r\nexport const data = {\r\n  labels,\r\n  datasets: [\r\n    {\r\n      label: 'Dataset 1',\r\n      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n      borderColor: 'rgb(255, 99, 132)',\r\n      backgroundColor: 'rgba(255, 99, 132, 0.5)',\r\n      yAxisID: 'y',\r\n    },\r\n    {\r\n      label: 'Dataset 2',\r\n      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),\r\n      borderColor: 'rgb(53, 162, 235)',\r\n      backgroundColor: 'rgba(53, 162, 235, 0.5)',\r\n      yAxisID: 'y1',\r\n    },\r\n  ],\r\n};\r\n\r\nexport function LineChartComp() {\r\n  return <Line options={options} data={data} />;\r\n}\r\n\r\n"
+        }
+    ]
+}

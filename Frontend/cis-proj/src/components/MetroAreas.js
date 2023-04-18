@@ -1,9 +1,84 @@
-import { useState } from 'react'
+import React from 'react'
+import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { faker } from '@faker-js/faker';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+const options = {
+    responsive: true,
+    interaction: {
+        mode: 'index',
+        intersect: false,
+    },
+    stacked: false,
+    plugins: {
+        title: {
+            display: true,
+            text: 'Comparing Two Metropolitan Areas',
+        },
+    },
+    scales: {
+        y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+        },
+        y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            grid: {
+                drawOnChartArea: false,
+            },
+        },
+    },
+};
+
+const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
+const data = {
+    labels,
+    datasets: [
+        {
+            label: "Dataset 1",
+            data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            yAxisID: "y"
+        },
+        {
+            label: "Dataset 2",
+            data: [0, 1, 2, 3, 4, 5],
+            borderColor: "rgb(53, 162, 235)",
+            backgroundColor: "rgba(53, 162, 235, 0.5)",
+            yAxisID: "y1"
+        }
+    ]
+};
+
+export function LineChartComp() {
+    return <Line options={options} data={data} />;
+}
+
+var dataMetro1 = [];
+var dataMetro2 = [];
+var dataNI = [];
+var updatedData = {};
 
 function MetropolitanAreas() {
+
     const metroAreas = [
         { value: "35620", label: "New York, NY" },
         { value: '31080', label: "Los Angeles, CA" },
@@ -74,6 +149,58 @@ function MetropolitanAreas() {
 
             console.log(response)
 
+            var length = response.data.rows.length
+
+            for (var a = 0; a < length; a++) {
+
+                dataMetro1.push(response.data.rows[a].V1);
+
+            }
+
+            for (var a = 0; a < length; a++) {
+
+                dataMetro2.push(response.data.rows[a].V2);
+
+            }
+
+            for (var a = 0; a < length; a++) {
+
+                dataNI.push(response.data.rows[a].INDICATOR);
+
+            }
+
+            const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
+
+            const bruh = {
+                labels,
+                datasets: [
+                    {
+                        label: 'Metropolitan Area 1',
+                        data: dataMetro1,
+                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Metropolitan Area 2',
+                        data: dataMetro2,
+                        borderColor: 'rgb(53, 162, 235)',
+                        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'National Indicator',
+                        data: dataNI,
+                        borderColor: 'rgb(100, 162, 235)',
+                        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                        yAxisID: 'y1',
+                    },
+                ],
+            };
+
+            ChartJS.data = bruh;
+            ChartJS.update();
+
         })
     }
 
@@ -88,7 +215,7 @@ function MetropolitanAreas() {
                 <select value={metro1} onChange={e => setMetro1(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
-                      <option value={area.value}>{area.label}</option>
+                        <option value={area.value}>{area.label}</option>
                     )};
                 </select>
             </div>
@@ -147,6 +274,12 @@ function MetropolitanAreas() {
             </div>
             <Button variant="secondary" onClick={getData}>Search</Button>
             <p>{data}</p>
+            <div style={{
+                width: '600',
+                hegit: "300",
+            }}>
+                <LineChartComp></LineChartComp>
+            </div>
 
         </>
     )
