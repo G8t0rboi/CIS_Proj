@@ -129,12 +129,7 @@ function MetropolitanAreas() {
 
     let chart = new LineChartComp(document.getElementById('line'), {
     type: 'line',
-    data: data,
-    options: {
-        layout: {
-            padding: 20
-        }
-    }
+    data: data
     });
 
     return (

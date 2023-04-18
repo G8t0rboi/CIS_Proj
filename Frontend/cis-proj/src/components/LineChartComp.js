@@ -32,7 +32,7 @@ export const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Chart.js Line Chart - Multi Axis',
+      text: 'Metropolitian Area Comparision Line Chart',
     },
   },
   scales: {
@@ -50,11 +50,18 @@ export const options = {
       },
     },
   },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      autoPadding: true
+  }
+},
+
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-
+  
 export const data = {
   labels,
   datasets: [
