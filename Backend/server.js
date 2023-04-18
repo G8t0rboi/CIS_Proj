@@ -8,8 +8,8 @@ app.use(cors());
 
 app.get('/testPage', (req, res) => {
 
-    const X = req.query.X
-    const statement = 'SELECT YEAR, AVG(' + X + ') Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC'
+    const x = req.query.X
+    const statement = 'SELECT YEAR, AVG(' + x + ') Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC'
     console.log(statement)
 
     async function fetchData() {

@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
-//import { queryA } from './queryBuilder'
-//import { queryB } from './queryBuilder'
-import { queryC } from './queryBuilder'
-import { queryD } from './queryBuilder'
 
 
 function MetropolitanAreas() {
@@ -63,12 +59,11 @@ function MetropolitanAreas() {
 
     const getData = () => {
         const options = {
-            X: 'DISHWASH',
-            Y: natSelection,
-            Z: metro1,
-            H: metro2,
-            statistic: statSelection,
-            url: 'http://localhost:8080/testPage'
+            method: 'GET',
+            url: 'http://localhost:8080/testPage',
+            params: {
+                X: 'DISHWASH'
+            },
         }
         console.log(options)
         axios.request(options).then((response) => {
