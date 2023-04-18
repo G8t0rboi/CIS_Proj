@@ -67,6 +67,16 @@ function Home() {
                     <Button variant="secondary" size="lg">Compare Local Factors</Button>
                 </Link>
             </div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "90%",
+                    left: "45%"
+                }}>
+                <Link to="/testPage">
+                    <Button variant="secondary" size="lg">TestPage</Button>
+                </Link>
+            </div>
         </div>
       )
 }

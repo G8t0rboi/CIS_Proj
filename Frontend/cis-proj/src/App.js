@@ -5,6 +5,7 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
+import TestPage from './components/TestPage'
 import About from './components/About';
 import MetropolitanAreas from './components/MetroAreas';
 import Distributions from './components/Distributions';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/metropolitanAreas" element={<MetropolitanAreas />}></Route>
             <Route path="/distributions" element={<Distributions />}></Route>
             <Route path="/localFactors" element={<LocalFactors />}></Route>
+            <Route path="/testPage" element={<TestPage />}></Route>
         </Routes>
       </Router>
     </div>
