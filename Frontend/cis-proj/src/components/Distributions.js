@@ -1,8 +1,12 @@
 import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
+import { PieChartComp } from './PieChartComp';
 
 function Distributions() {
     return (
+
+        <><PieChartComp>PieChartComp</PieChartComp>
+
         <div>
             <h1>Distribution Page</h1>
             <Dropdown>
@@ -28,7 +32,8 @@ function Distributions() {
                     <Dropdown.Item eventKey="Riverside, CA">Riverside, CA</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-        </div>
+        </div></>
+         
     )
 }
 export default Distributions
