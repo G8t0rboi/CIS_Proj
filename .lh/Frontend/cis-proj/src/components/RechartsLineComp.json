@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Frontend/cis-proj/src/components/RechartsLineComp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1681855893899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1681855893899,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { LineChart, Line, XAxis, YAxis, CartesianGrid} from 'recharts';\r\n  \r\n  \r\nconst RechartsLineComp = () => {\r\n  \r\n// Sample data\r\nconst data = [\r\n  {x:1, y:23,  z:122},\r\n  {x:2, y:3,   z:73},\r\n  {x:3, y:15,  z:32},\r\n  {x:4, y:35,  z:23},\r\n  {x:5, y:45,  z:20},\r\n  {x:6, y:25,  z:29},\r\n  {x:7, y:17,  z:61},\r\n  {x:8, y:32,  z:45},\r\n  {x:9, y:43,  z:93},\r\n];\r\n  \r\n  \r\nreturn (\r\n        <LineChart width={500} height={700} data={data}>\r\n          <CartesianGrid/>\r\n          <XAxis dataKey=\"x\" />\r\n          <YAxis yAxisId=\"left-axis\" />\r\n          <YAxis yAxisId=\"right-axis\" orientation=\"right\" />\r\n          <Line yAxisId=\"left-axis\" type=\"monotone\" dataKey=\"y\" \r\n          stroke=\"green\"/>\r\n          <Line yAxisId=\"right-axis\" type=\"monotone\" dataKey=\"z\" \r\n          stroke=\"red\" />\r\n        </LineChart>\r\n);\r\n}\r\n  \r\nexport default RechartsLineComp;"
+        }
+    ]
+}

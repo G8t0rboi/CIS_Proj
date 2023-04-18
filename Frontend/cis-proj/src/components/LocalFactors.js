@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 
 // function LocalFactors() {
 //     return (
@@ -15,6 +15,25 @@ import Button from 'react-bootstrap/Button'
 
 
 function LocalFactors() {
+
+    const ahs_attributes = [
+        { label: "Household Rating", value: "RATINGHS" },
+        { label: "Neighborhood Rating", value: "RATINGNH" },
+        { label: "Family Income", value: "FINCP" },
+        { label: "Resident's Income", value: "HINCP" },
+        { label: "Resident's Age", value: "HHAGE" },
+        { label: 'Property Value', value: "MARKETVAL" },
+        { label: "Monthly Mortgage", value: "MORTAMT" },
+        { label: "Monthly Rent", value: "RENT" },
+        { label: "Year Built", value: "YRBUILT" },
+        { label: "Unit Size", value: "UNITSIZE" },
+        { label: "No Access To Water", value: "NOWAT" },
+        { label: "Monthly Home Expenses", value: "TOTHCAMT" },
+        { label: "Total Rooms", value: "TOTROOMS" },
+        { label: "Rent Control Present", value: "RENTCNTRL" },
+        { label: "Number of Inhabitants", value: "NUMPEOPLE" },
+    ]
+    
     const metroAreas = [
         { value: "35620", label: "New York, NY" },
         { value: '31080', label: "Los Angeles, CA" },

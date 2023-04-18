@@ -2,81 +2,14 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
-import { LineChartComp } from './LineChartComp';
 
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-);
-
-const options = {
-    responsive: true,
-    interaction: {
-        mode: 'index',
-        intersect: false,
-    },
-    stacked: false,
-    plugins: {
-        title: {
-            display: true,
-            text: 'Comparing Two Metropolitan Areas',
-        },
-    },
-    scales: {
-        y: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-        },
-        y1: {
-            type: 'linear',
-            display: true,
-            position: 'right',
-            grid: {
-                drawOnChartArea: false,
-            },
-        },
-    },
-};
-
-const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
-const data = {
-    labels,
-    datasets: [
-        {
-            label: "Dataset 1",
-            data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
-            borderColor: "rgb(255, 99, 132)",
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
-            yAxisID: "y"
-        },
-        {
-            label: "Dataset 2",
-            data: [0, 1, 2, 3, 4, 5],
-            borderColor: "rgb(53, 162, 235)",
-            backgroundColor: "rgba(53, 162, 235, 0.5)",
-            yAxisID: "y1"
-        }
-    ]
-};
-
-export function LineChartComp() {
-    return <Line options={options} data={data} />;
-}
-
+import { LineChartComp } from './LineChartComp';
 var dataMetro1 = [];
 var dataMetro2 = [];
 var dataNI = [];
-var updatedData = {};
 
 function MetropolitanAreas() {
 
@@ -130,6 +63,8 @@ function MetropolitanAreas() {
     const [ahsSelection, setAHSSelection] = useState();
     const [natSelection, setNatSelection] = useState();
     const [statSelection, setStatSelection] = useState();
+    const [chartData, setChartData] = useState([]);
+    
 
     const [data, setData] = useState([])
 
@@ -177,7 +112,7 @@ function MetropolitanAreas() {
                 datasets: [
                     {
                         label: 'Metropolitan Area 1',
-                        data: dataMetro1,
+                        data: [1,2,3,4,5,6],
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         yAxisID: 'y',
@@ -191,7 +126,7 @@ function MetropolitanAreas() {
                     },
                     {
                         label: 'National Indicator',
-                        data: dataNI,
+                        data: [6,5,4,3,2,1],
                         borderColor: 'rgb(100, 162, 235)',
                         backgroundColor: 'rgba(53, 162, 235, 0.5)',
                         yAxisID: 'y1',
@@ -199,20 +134,17 @@ function MetropolitanAreas() {
                 ],
             };
 
-            ChartJS.data = bruh;
-            ChartJS.update();
+            
+            setChartData(bruh);
 
         })
     }
-
-        
-
     return (
         <>
 
-        
-        
-            
+
+
+
             <div style={{
                 top: "100%",
                 left: "15%",
@@ -281,6 +213,7 @@ function MetropolitanAreas() {
             </div>
             <Button variant="secondary" onClick={getData}>Search</Button>
             <p>{data}</p>
+
             <div style={{
                 width: '600',
                 hegit: "300",
@@ -289,8 +222,6 @@ function MetropolitanAreas() {
             </div>
 
             
-        
-
         </>
     )
 }

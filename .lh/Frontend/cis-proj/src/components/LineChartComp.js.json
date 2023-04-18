@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 33,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1681841553644,
@@ -140,6 +140,30 @@
                 {
                     "date": 1681847114044,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,6 @@\n import React from 'react'\r\n-import {\r\n-  Chart as ChartJS,\r\n-  CategoryScale,\r\n-  LinearScale,\r\n-  PointElement,\r\n-  LineElement,\r\n-  Title,\r\n-  Tooltip,\r\n-  Legend,\r\n-} from 'chart.js';\r\n+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,} from 'chart.js';\r\n import { Line } from 'react-chartjs-2';\r\n import {faker} from '@faker-js/faker';\r\n \r\n ChartJS.register(\r\n"
+                },
+                {
+                    "date": 1681851563906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   stacked: false,\r\n   plugins: {\r\n     title: {\r\n       display: true,\r\n-      text: 'Comparing Two Metropolitan Areas',\r\n+      text: 'Metropolitian Area Comparision Line Chart',\r\n     },\r\n   },\r\n   scales: {\r\n     y: {\r\n@@ -40,8 +40,16 @@\n         drawOnChartArea: false,\r\n       },\r\n     },\r\n   },\r\n+  options: {\r\n+    responsive: true,\r\n+    maintainAspectRatio: false,\r\n+    layout: {\r\n+      autoPadding: true\r\n+  }\r\n+},\r\n+\r\n };\r\n \r\n const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];\r\n const data = {\r\n@@ -63,7 +71,7 @@\n     }\r\n   ]\r\n };\r\n \r\n-export function LineChartComp() {\r\n-  return <Line options={options} data={data} />;\r\n+export function LineChartComp(d) {\r\n+  return <Line options={options} data={d} />;\r\n }\r\n"
+                },
+                {
+                    "date": 1681856780447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,7 +71,7 @@\n     }\r\n   ]\r\n };\r\n \r\n-export function LineChartComp(d) {\r\n+export function LineChartComp({d}) {\r\n   return <Line options={options} data={d} />;\r\n }\r\n"
+                },
+                {
+                    "date": 1681856947093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,4 +74,20 @@\n \r\n export function LineChartComp({d}) {\r\n   return <Line options={options} data={d} />;\r\n }\r\n+\r\n+const LineChart = ({data, options, onUpdate }) => {\r\n+\r\n+\r\n+  return (\r\n+\r\n+    <>\r\n+    \r\n+      <Line data={data} options={options} />\r\n+\r\n+    </>\r\n+\r\n+  )\r\n+\r\n+\r\n+}\r\n"
+                },
+                {
+                    "date": 1681856963934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,4 +90,6 @@\n   )\r\n \r\n \r\n }\r\n+\r\n+export default LineChart;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1681856969183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,12 +71,8 @@\n     }\r\n   ]\r\n };\r\n \r\n-export function LineChartComp({d}) {\r\n-  return <Line options={options} data={d} />;\r\n-}\r\n-\r\n const LineChart = ({data, options, onUpdate }) => {\r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1681857915796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,21 +71,7 @@\n     }\r\n   ]\r\n };\r\n \r\n-const LineChart = ({data, options, onUpdate }) => {\r\n-\r\n-\r\n-  return (\r\n-\r\n-    <>\r\n-    \r\n-      <Line data={data} options={options} />\r\n-\r\n-    </>\r\n-\r\n-  )\r\n-\r\n-\r\n+export function LineChartComp() {\r\n+  return <Line options={options} data={data} />;\r\n }\r\n\\ No newline at end of file\n-\r\n-export default LineChart;\n"
                 }
             ],
             "date": 1681841553644,
