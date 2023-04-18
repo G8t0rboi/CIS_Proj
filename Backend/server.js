@@ -149,8 +149,59 @@ app.get('/Distributions', (req, res) => {
 
 })
 
-app.listen(8080, () => { console.log("Server started on port 8080") })
 
+
+
+
+app.get('/LocalFactors', (req, res) => {
+    const X = req.query.X
+    const Y = req.query.Y
+    const Z = req.query.Z
+
+    console.log(X)
+    console.log(Y)
+    console.log(Z)
+
+    const statement = localFactorsQueries(X, Y, Z)
+    console.log(statement)
+
+    async function fetchData() {
+ 
+        try {
+
+            const connection = await oracledb.getConnection({
+
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
+            })
+
+            const result = await connection.execute(statement, [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
+            return result;
+
+        } catch (error) {
+
+            console.error(error);
+            return error;
+
+        }
+
+    }
+
+    fetchData().then(dbRes => {
+
+        res.send(dbRes)
+
+    })
+        .catch(error => {
+
+            res.send("bru")
+
+        })
+
+})
+
+app.listen(8080, () => { console.log("Server started on port 8080") })
 
 
 function MetroAreasQueries(x, y, z, h, stat) {
@@ -255,14 +306,14 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + 'WHERE Code = \'\'\'' + h + '\'\'\' '
             + 'GROUP BY Year '
             + ') M2 '
-            + 'ON M2.YEAR = NAT_INDICATORS.YEAR ; ')
+            + 'ON M2.YEAR = NAT_INDICATORS.YEAR ')
     }
 }
 
 
 function localFactorsQueries(x, y, z) {
     return (
-        +'select Vals_yearA.year, Vals_yearA.V1, Vals_yearB.V2 '
+         'select Vals_yearA.year, Vals_yearA.V1, Vals_yearB.V2 '
         + 'from '
         + '( '
         + 'select YEAR as year, TRUNC(AVG(' + x + '),2) as V1 '
@@ -279,7 +330,7 @@ function localFactorsQueries(x, y, z) {
         + 'GROUP BY YEAR '
         + 'ORDER BY YEAR ASC '
         + ') Vals_yearB '
-        + 'on  Vals_yearB.year = Vals_yearA.year; '
+        + 'on  Vals_yearB.year = Vals_yearA.year '
     )
 }
 
