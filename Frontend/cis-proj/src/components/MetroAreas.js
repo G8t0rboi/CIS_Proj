@@ -60,9 +60,13 @@ function MetropolitanAreas() {
     const getData = () => {
         const options = {
             method: 'GET',
-            url: 'http://localhost:8080/testPage',
+            url: 'http://localhost:8080/MetroAreas',
             params: {
-                X: 'DISHWASH'
+                X: ahsSelection,
+                Y: natSelection,
+                Z: metro1,
+                H: metro2,
+                statistic: statSelection
             },
         }
         console.log(options)

@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
+oracledb.initOracleClient({libDir: '/Users/manuelnunezmartinez/Downloads/instantclient_19_8'});
 
 app.get('/testPage', (req, res) => {
 
@@ -121,14 +122,14 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + 'GROUP BY YEAR '
             + 'ORDER BY YEAR ASC '
             + ') Vals_yearB '
-            + 'on  Vals_yearB.year = NAT_INDICATORS.YEAR; ')
+            + 'on  Vals_yearB.year = NAT_INDICATORS.YEAR')
     }
     else if (stat = 'Median') {
         return ('WITH T(Year, Code, Att) AS '
             + '( '
             + 'SELECT YEAR, OMB13CBSA, ' + x + ' '
             + 'FROM AHS '
-            + 'WHERE X IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
+            + 'WHERE ' + x + ' IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
             + ') '
             + 'SELECT M1.YEAR, M1.V1, M2.V2, NAT_INDICATORS.' + y + ' as Indicator '
             + 'FROM '
@@ -147,14 +148,14 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + 'WHERE Code = \'\'\'' + h + '\'\'\' '
             + 'GROUP BY Year '
             + ') M2 '
-            + 'ON M2.YEAR = NAT_INDICATORS.YEAR ; ')
+            + 'ON M2.YEAR = NAT_INDICATORS.YEAR')
     }
     else if (stat = 'Upper Quartile') {
         return ('WITH T(Year, Code, Att) A '
             + '( '
             + 'SELECT YEAR, OMB13CBSA, ' + x
             + 'FROM AHS '
-            + 'WHERE X IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
+            + 'WHERE ' + x + ' IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
             + ') '
             + 'SELECT M1.YEAR, M1.V1, M2.V2, NAT_INDICATORS.' + y + ' as Indicator '
             + 'FROM '
@@ -173,7 +174,7 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + 'WHERE Code = \'\'\'' + h + '\'\'\' '
             + 'GROUP BY Year '
             + ') M2 '
-            + 'ON M2.YEAR = NAT_INDICATORS.YEAR ; ')
+            + 'ON M2.YEAR = NAT_INDICATORS.YEAR')
 
     }
     else if (stat = 'Lower Quartile') {
@@ -181,7 +182,7 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + '( '
             + 'SELECT YEAR, OMB13CBSA, ' + x
             + 'FROM AHS '
-            + 'WHERE X IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
+            + 'WHERE ' + x + ' IS NOT NULL and (OMB13CBSA = \'\'\'' + z + '\'\'\' or OMB13CBSA =  \'\'\'' + h + '\'\'\') '
             + ') '
             + 'SELECT M1.YEAR, M1.V1, M2.V2, NAT_INDICATORS.' + y + ' as Indicator '
             + 'FROM '
