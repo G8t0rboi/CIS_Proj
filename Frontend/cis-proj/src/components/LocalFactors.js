@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// function LocalFactors() {
-//     return (
-//         <div>
-//             <h1>Comparing Local Factors</h1>
-//         </div>
-//     )
-// }
-// export default LocalFactors
-
 import { useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
@@ -49,17 +38,17 @@ function LocalFactors() {
 
 
     const local_attributes = [
-        { label: "Dish Washers", value: "FINCP" },
-        { label: "Garages", value: "HINCP" },
-        { label: "Dining Rooms", value: "MARKETVAL" },
-        { label: "Washing Machines", value: "MORTAMT" },
-        { label: "Porch", value: "RENT" },
-        { label: "Year Built", value: "YRBUILT" },
-        { label: "Unit Size", value: "UNITSIZE" },
-        { label: "Monthly Home Expenses ", value: "TOTHCAMT" },
-        { label: "Total Rooms", value: "TOTROOMS" },
-        { label: "Rent Control Present", value: "RENTCNTRL" },
-        { label: "Number of Inhabitants", value: "NUMPEOPLE" },
+        { label: "Dish Washers", value: "DISHWASH" },
+        { label: "Garages", value: "GARAGE" },
+        { label: "Dining Rooms", value: "DINING" },
+        { label: "Washing Machines", value: "WASHER" },
+        { label: "Porch", value: "PORCH" },
+        { label: "Kitchen Sink", value: "KITCHSINK" },
+        { label: "Household Rating", value: "RATINGHS" },
+        { label: "Neighborhood Rating", value: "RATINGNH" },
+        { label: "Resident's Marriage Status", value: "HHMAR" },
+        { label: "Resident's Citizenship Status", value: "HHCITSHP" },
+        { label: "Resident's Age", value: "HHAGE" },
     ]
 
 
@@ -74,7 +63,7 @@ function LocalFactors() {
     const getData = () => {
         const options = {
             method: 'GET',
-            url: 'http://localhost:8080/Distributions',
+            url: 'http://localhost:8080/LocalFactors',
             params: {
                 X: ahsSelection1,
                 Y: ahsSelection2,
@@ -118,7 +107,7 @@ function LocalFactors() {
                 Please Select a Market Attribute:
                 <select value={ahsSelection1} onChange={e => setAHSSelection1(e.target.value)}>
                     <option>--Select Household Attribute--</option>
-                    {ahs_attributes.map(attribute =>
+                    {market_attributes.map(attribute =>
                         <option value={attribute.value}>{attribute.label}</option>
                     )};
                 </select>
@@ -129,9 +118,9 @@ function LocalFactors() {
                 fontWeight: "bold"
             }}>
             Please Select a Local Attribute:
-                <select value={ahsSelection1} onChange={e => setAHSSelection1(e.target.value)}>
+                <select value={ahsSelection2} onChange={e => setAHSSelection2(e.target.value)}>
                     <option>--Select Household Attribute--</option>
-                    {ahs_attributes.map(attribute =>
+                    {local_attributes.map(attribute =>
                         <option value={attribute.value}>{attribute.label}</option>
                     )};
                 </select>
