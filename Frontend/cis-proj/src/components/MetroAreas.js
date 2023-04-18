@@ -148,6 +148,8 @@ function MetropolitanAreas() {
             <Button variant="secondary" onClick={getData}>Search</Button>
             <p>{data}</p>
 
+            
+
         </>
     )
 }

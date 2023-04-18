@@ -74,7 +74,7 @@ export const data = {
   ],
 };
 
-export function LineChartComp() {
-  return <Line options={options} data={data} />;
+export function LineChartComp(d) {
+  return <Line options={options} data={d} />;
 }
 
