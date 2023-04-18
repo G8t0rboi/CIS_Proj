@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 73,
+            "activePatchIndex": 83,
             "patches": [
                 {
                     "date": 1681765405055,
@@ -300,6 +300,46 @@
                 {
                     "date": 1681774959981,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n     const metroOne=(e)=> {\r\n \r\n         console.log(e)\r\n         setMetro1(e)\r\n-        console.log(metro1)\r\n+        console.log(setMetro1)\r\n \r\n     }\r\n \r\n     const [metro2,setMetro2] = useState('');\r\n"
+                },
+                {
+                    "date": 1681775433523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,8 +85,10 @@\n }\r\n \r\n function MetropolitanAreas() {\r\n \r\n+    \r\n+\r\n     const [metro1,setMetro1] = useState('');\r\n     const metroOne=(e)=> {\r\n \r\n         console.log(e)\r\n"
+                },
+                {
+                    "date": 1681775450670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -186,8 +186,9 @@\n                     <Dropdown.Item eventKey=\"Number of Inhabitants\">Number of Inhabitants</Dropdown.Item>\r\n                 </Dropdown.Menu>\r\n             </Dropdown>\r\n \r\n+            <\r\n \r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681775469415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n import { Line } from 'react-chartjs-2';\r\n import { faker } from '@faker-js/faker';\r\n import Dropdown from 'react-bootstrap/Dropdown';\r\n import { useEffect, useState } from \"react\";\r\n+import Button from 'react-bootstrap/Button'\r\n \r\n ChartJS.register(\r\n     CategoryScale,\r\n     LinearScale,\r\n@@ -186,9 +187,9 @@\n                     <Dropdown.Item eventKey=\"Number of Inhabitants\">Number of Inhabitants</Dropdown.Item>\r\n                 </Dropdown.Menu>\r\n             </Dropdown>\r\n \r\n-            <\r\n+            <Button></Button>\r\n \r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681775573607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,8 +84,14 @@\n     console.log('events: ', value)\r\n \r\n }\r\n \r\n+function submit() {\r\n+\r\n+\r\n+    \r\n+}\r\n+\r\n function MetropolitanAreas() {\r\n \r\n     \r\n \r\n@@ -187,9 +193,9 @@\n                     <Dropdown.Item eventKey=\"Number of Inhabitants\">Number of Inhabitants</Dropdown.Item>\r\n                 </Dropdown.Menu>\r\n             </Dropdown>\r\n \r\n-            <Button></Button>\r\n+            <Button onClick={submit}></Button>\r\n \r\n         </div>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1681775580431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,10 +86,10 @@\n }\r\n \r\n function submit() {\r\n \r\n+    try \r\n \r\n-    \r\n }\r\n \r\n function MetropolitanAreas() {\r\n \r\n"
+                },
+                {
+                    "date": 1681775614714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react'\r\n+import axios from 'axios'\r\n import Form from 'react-bootstrap/Form'\r\n import {\r\n     Chart as ChartJS,\r\n     CategoryScale,\r\n@@ -84,14 +85,18 @@\n     console.log('events: ', value)\r\n \r\n }\r\n \r\n-function submit() {\r\n+const submit = () => {\r\n \r\n-    try \r\n+    axios.get(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-}\r\n+      console.log(response.data.rows)\r\n \r\n+    })\r\n+\r\n+  }\r\n+\r\n function MetropolitanAreas() {\r\n \r\n     \r\n \r\n"
+                },
+                {
+                    "date": 1681775629891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n }\r\n \r\n const submit = () => {\r\n \r\n-    axios.get(\"http://localhost:8080/students\").then((response) => {\r\n+    axios.post(\"http://localhost:8080/students\").then((response) => {\r\n \r\n       console.log(response.data.rows)\r\n \r\n     })\r\n"
+                },
+                {
+                    "date": 1681776197870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,18 +85,10 @@\n     console.log('events: ', value)\r\n \r\n }\r\n \r\n-const submit = () => {\r\n \r\n-    axios.post(\"http://localhost:8080/students\").then((response) => {\r\n \r\n-      console.log(response.data.rows)\r\n-\r\n-    })\r\n-\r\n-  }\r\n-\r\n function MetropolitanAreas() {\r\n \r\n     \r\n \r\n@@ -122,8 +114,24 @@\n         console.log(e)\r\n         setNation(e)\r\n     }\r\n \r\n+    const submit = () => {\r\n+\r\n+        axios.post(\"http://localhost:8080/results\",{ \r\n+            \r\n+            x: 'Household Rating',\r\n+            y: 'GDP',\r\n+            z: metro1,\r\n+            h: metro2,\r\n+            stat: 'mean'\r\n+        \r\n+        }\r\n+        \r\n+        )\r\n+    \r\n+      }\r\n+\r\n     return (\r\n         <div>\r\n             <h1>Comparing Metropolitan Areas</h1>\r\n \r\n"
+                },
+                {
+                    "date": 1681776240651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,18 +88,14 @@\n \r\n \r\n \r\n function MetropolitanAreas() {\r\n-\r\n-    \r\n-\r\n     const [metro1,setMetro1] = useState('');\r\n     const metroOne=(e)=> {\r\n \r\n         console.log(e)\r\n         setMetro1(e)\r\n-        console.log(setMetro1)\r\n-\r\n+        \r\n     }\r\n \r\n     const [metro2,setMetro2] = useState('');\r\n     const metroTwo=(e)=> {\r\n"
+                },
+                {
+                    "date": 1681776917022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,24 +78,16 @@\n         },\r\n     ],\r\n };\r\n \r\n-function getSign(events,value) {\r\n \r\n-    console.log('value: ', value)\r\n-    console.log('events: ', value)\r\n-\r\n-}\r\n-\r\n-\r\n-\r\n function MetropolitanAreas() {\r\n     const [metro1,setMetro1] = useState('');\r\n     const metroOne=(e)=> {\r\n \r\n         console.log(e)\r\n         setMetro1(e)\r\n-        \r\n+\r\n     }\r\n \r\n     const [metro2,setMetro2] = useState('');\r\n     const metroTwo=(e)=> {\r\n"
                 }
             ],
             "date": 1681765405055,

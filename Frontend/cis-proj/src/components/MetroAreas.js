@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import {
     Chart as ChartJS,
@@ -14,6 +15,7 @@ import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button'
 
 ChartJS.register(
     CategoryScale,
@@ -77,21 +79,13 @@ export const data = {
     ],
 };
 
-function getSign(events,value) {
-
-    console.log('value: ', value)
-    console.log('events: ', value)
-
-}
 
 function MetropolitanAreas() {
-
     const [metro1,setMetro1] = useState('');
     const metroOne=(e)=> {
 
         console.log(e)
         setMetro1(e)
-        console.log(setMetro1)
 
     }
 
@@ -108,6 +102,22 @@ function MetropolitanAreas() {
         console.log(e)
         setNation(e)
     }
+
+    const submit = () => {
+
+        axios.post("http://localhost:8080/results",{ 
+            
+            x: 'Household Rating',
+            y: 'GDP',
+            z: metro1,
+            h: metro2,
+            stat: 'mean'
+        
+        }
+        
+        )
+    
+      }
 
     return (
         <div>
@@ -185,6 +195,7 @@ function MetropolitanAreas() {
                 </Dropdown.Menu>
             </Dropdown>
 
+            <Button onClick={submit}></Button>
 
         </div>
     )
