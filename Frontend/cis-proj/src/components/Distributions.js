@@ -169,11 +169,12 @@ function Distributions() {
     }
 
     function getType(X) {
-        if (X === 'HHRACE' || X === 'HHGRAD') {
+        if (X === 'HHRACE' || X === 'HHGRAD' || X === 'RATINGHS' || X === 'RATINGNH' || X === 'HHSEX' || X ==='NUMPEOPLE' || X ==='HHMAR' || X ==='HHCITSHP' || X ==='UNITSIZE' ) {
             return 'categorical';
         }
         else { return 'numerical' }
     }
+
 
 
 

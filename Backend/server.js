@@ -6,6 +6,10 @@ const app = express();
 
 app.use(cors());
 
+oracledb.initOracleClient({libDir: '/Users/manuelnunezmartinez/Downloads/instantclient_19_8'});
+
+
+
 app.get('/testPage', (req, res) => {
 
     const statement = 'SELECT YEAR, AVG(DISHWASH) Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC'
