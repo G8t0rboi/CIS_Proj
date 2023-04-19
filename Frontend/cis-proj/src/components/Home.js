@@ -100,7 +100,7 @@ function Home() {
                 style={{
                     position: "absolute",
                     top: "80%",
-                    left: "40%"
+                    left: "35%"
                 }}>
                 <h1>{tupleCount}</h1>
             </div>
