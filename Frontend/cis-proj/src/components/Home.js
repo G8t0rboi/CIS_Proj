@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function Home() {
     var tupleCounts = []
-    const [tupleCount, setTupleCount] = useState('')
+    const [tupleCount, setTupleCount] = useState("")
     const getData = () => {
         const options = {
             method: 'GET',
