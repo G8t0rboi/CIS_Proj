@@ -8,11 +8,49 @@ app.use(cors());
 
 app.get('/testPage', (req, res) => {
 
-    const x = req.query.X
-    const statement = 'SELECT YEAR, AVG(' + x + ') Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC'
-    console.log(statement)
+    const statement = 'SELECT YEAR, AVG(DISHWASH) Dishwashers FROM AHS GROUP BY YEAR ORDER BY YEAR ASC'
 
     async function fetchData() {
+
+        try {
+
+            const connection = await oracledb.getConnection({
+
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
+            })
+
+            const result = await connection.execute(statement, [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
+            return result;
+
+        } catch (error) {
+
+            console.error(error);
+            return error;
+
+        }
+
+    }
+
+    fetchData().then(dbRes => {
+
+        res.send(dbRes)
+
+    })
+        .catch(error => {
+
+            res.send("bru")
+
+        })
+
+})
+
+app.get('/tupleCount', (req, res) => {
+
+    async function fetchData() {
+
+        const statement = '(select count(*) as COUNT from AHS) union (select count(*) as COUNT from NAT_INDICATORS)'
 
         try {
 
@@ -56,7 +94,6 @@ app.get('/MetroAreas', (req, res) => {
     const statistic = req.query.statistic
 
     const statement = MetroAreasQueries(X, Y, Z, H, statistic)
-    console.log(statement)
 
     async function fetchData() {
 
@@ -106,13 +143,7 @@ app.get('/Distributions', (req, res) => {
     const Z = req.query.Z
     const Type = req.query.type
 
-    console.log(X)
-    console.log(Y)
-    console.log(Z)
-    console.log(Type)
-
     const statement = pieChartsQueries(X, Z, Y, Type)
-    console.log(statement)
 
     async function fetchData() {
 
@@ -159,12 +190,7 @@ app.get('/LocalFactors', (req, res) => {
     const Y = req.query.Y
     const Z = req.query.Z
 
-    console.log(X)
-    console.log(Y)
-    console.log(Z)
-
     const statement = localFactorsQueries(X, Y, Z)
-    console.log(statement)
 
     async function fetchData() {
 
@@ -307,7 +333,7 @@ function MetroAreasQueries(x, y, z, h, stat) {
             + 'WHERE Code = \'\'\'' + h + '\'\'\' '
             + 'GROUP BY Year '
             + ') M2 '
-            + 'ON M2.YEAR = NAT_INDICATORS.YEAR ')
+            + 'ON M2.YEAR = NAT_INDICATORS.YEAR')
     }
 }
 

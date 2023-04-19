@@ -157,7 +157,7 @@ function LocalFactors() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select Metropolitan Area: 
+                {'Please Select a Metropolitan Area: '}
                 <select value={metro1} onChange={e => setMetro1(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
@@ -170,7 +170,7 @@ function LocalFactors() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select a Market Attribute:
+                {'Please Select a Market Attribute: '}
                 <select value={ahsSelection1} onChange={e => setAHSSelection1(e.target.value)}>
                     <option>--Select Household Attribute--</option>
                     {market_attributes.map(attribute =>
@@ -183,7 +183,7 @@ function LocalFactors() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-            Please Select a Local Attribute:
+                {'Please Select a Local Attribute: '}
                 <select value={ahsSelection2} onChange={e => setAHSSelection2(e.target.value)}>
                     <option>--Select Household Attribute--</option>
                     {local_attributes.map(attribute =>
