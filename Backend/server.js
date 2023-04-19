@@ -16,8 +16,8 @@ app.get('/testPage', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
-                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -101,8 +101,8 @@ app.get('/MetroAreas', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
-                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -151,8 +151,8 @@ app.get('/Distributions', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
-                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
+                user: "amanuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -198,8 +198,8 @@ app.get('/LocalFactors', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "aaron.estrellado",
-                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
+                user: "manuel.nunez",
+                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
