@@ -15,13 +15,13 @@ function Home() {
         axios.request(options).then((response) => {
 
             console.log(response)
-            tupleCounts.push(response.data.rows[0].COUNT)
-            tupleCounts.push(response.data.rows[1].COUNT)
+            tupleCounts.push(response.data.rows[0].TOTAL)
 
         })
-        var tempNum = tupleCounts[0] + tupleCounts[1]
-        var tempString = "Total Tuple Count: " + toString(tempNum)
-        setTupleCount(tempString)
+        if (tupleCounts[0] !== undefined) {
+            var tempString = "Total Tuple Count: " + tupleCounts[0]
+            setTupleCount(tempString)
+        }
         tupleCounts = []
     }
 
