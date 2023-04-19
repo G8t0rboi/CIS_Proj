@@ -37,6 +37,7 @@ function Home() {
                     alignItems: "center",
                     textAlign: "center",
                     fontFamily: "Segoe UI",
+                    fontSize: "14pt",
                     fontWeight: "bold"
                 }}>
                 The housing scene in the United States encompasses an endless spectrum of markets that differ in many ways.
