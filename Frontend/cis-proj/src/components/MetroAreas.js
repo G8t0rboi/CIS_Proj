@@ -69,7 +69,7 @@ function MetropolitanAreas() {
     const [ahsSelection, setAHSSelection] = useState();
     const [natSelection, setNatSelection] = useState();
     const [statSelection, setStatSelection] = useState();
-    const [chartData, setChartData] = useState([]);
+    const [chartData, setChartData] = useState(emptyGraph);
     const [firstRender, setFirstRender] = useState(false);
 
     const [data, setData] = useState([])
@@ -234,7 +234,7 @@ function MetropolitanAreas() {
             <div style={{
                 width: '1200',
             }}>
-                <LineChartComp data={chartData}></LineChartComp>
+                <LineChartComp data={chartData === undefined ? emptyGraph : chartData}></LineChartComp>
             </div>
 
 
