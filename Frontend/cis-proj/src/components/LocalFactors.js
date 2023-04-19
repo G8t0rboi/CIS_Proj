@@ -12,28 +12,20 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import { LineChartComp } from './LineChartComp';
+
+var dataAHS = [];
+var dataMarket = [];
+
+const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
+    const emptyGraph = {
+        labels,
+        datasets: []
+    };
 
 
 function LocalFactors() {
 
-    const ahs_attributes = [
-        { label: "Household Rating", value: "RATINGHS" },
-        { label: "Neighborhood Rating", value: "RATINGNH" },
-        { label: "Family Income", value: "FINCP" },
-        { label: "Resident's Income", value: "HINCP" },
-        { label: "Resident's Age", value: "HHAGE" },
-        { label: 'Property Value', value: "MARKETVAL" },
-        { label: "Monthly Mortgage", value: "MORTAMT" },
-        { label: "Monthly Rent", value: "RENT" },
-        { label: "Year Built", value: "YRBUILT" },
-        { label: "Unit Size", value: "UNITSIZE" },
-        { label: "No Access To Water", value: "NOWAT" },
-        { label: "Monthly Home Expenses", value: "TOTHCAMT" },
-        { label: "Total Rooms", value: "TOTROOMS" },
-        { label: "Rent Control Present", value: "RENTCNTRL" },
-        { label: "Number of Inhabitants", value: "NUMPEOPLE" },
-    ]
-    
     const metroAreas = [
         { value: "35620", label: "New York, NY" },
         { value: '31080', label: "Los Angeles, CA" },
@@ -87,7 +79,7 @@ function LocalFactors() {
     const [metro1, setMetro1] = useState();
     const [ahsSelection1, setAHSSelection1] = useState();
     const [ahsSelection2, setAHSSelection2] = useState();
-
+    const [chartData, setChartData] = useState(emptyGraph);
     const [data, setData] = useState([])
 
     const getData = () => {
@@ -105,6 +97,50 @@ function LocalFactors() {
         axios.request(options).then((response) => {
 
             console.log(response)
+
+            var length = response.data.rows.length
+
+            for (var a = 0; a < length; a++) {
+
+                dataAHS.push(response.data.rows[a].V1);
+
+            }
+
+            for (var a = 0; a < length; a++) {
+
+                dataMarket.push(response.data.rows[a].V2);
+
+            }
+
+            console.log(dataAHS)
+            console.log(dataMarket)
+
+            const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
+
+            const bruh = {
+                labels,
+                datasets: [
+                    {
+                        label: 'Market Attribute',
+                        data: dataAHS,
+                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Local Attribute',
+                        data: dataMarket,
+                        borderColor: 'rgb(100, 162, 100)',
+                        backgroundColor: 'rgba(53, 162, 100, 0.5)',
+                        yAxisID: 'y1',
+                    },
+                ],
+            };
+
+
+            setChartData(bruh);
+            dataAHS = [];
+            dataMarket = [];
 
         })
     }
@@ -161,7 +197,11 @@ function LocalFactors() {
 
             
         
-
+            <div style={{
+                width: '800px',
+            }}>
+                <LineChartComp data={chartData === undefined ? emptyGraph : chartData}></LineChartComp>
+            </div>
         </>
     )
 }

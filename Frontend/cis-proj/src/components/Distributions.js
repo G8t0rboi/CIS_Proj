@@ -2,6 +2,17 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import {PieChartComp} from './PieChartComp'
+
+var dataMetro = [];
+var dataAHS = [];
+var dataLabel = [];
+
+const labels = [];
+    const emptyGraph = {
+        labels,
+        datasets: []
+    };
 
 
 function Distributions() {
@@ -62,6 +73,9 @@ function Distributions() {
     const [ahsSelection, setAHSSelection] = useState();
     const [yearSelection, setYearSelection] = useState();
 
+    const[labelData, setLabelData] = useState();
+    const [chartData, setChartData] = useState(emptyGraph);
+
     const [data, setData] = useState([])
 
     const getData = () => {
@@ -73,7 +87,7 @@ function Distributions() {
                 Y: yearSelection,
                 Z: metro1,
                 type: getType(ahsSelection)
-                
+
             },
         }
         console.log(options)
@@ -81,26 +95,103 @@ function Distributions() {
 
             console.log(response)
 
+            var length = response.data.rows.length
+
+            if ( getType(ahsSelection) === 'numerical') {
+
+                for ( var a = 0; a < length; a++ ) {
+
+                    dataLabel.push(response.data.rows[a].RANGES)
+
+                }
+
+                for ( var a = 0; a < length; a++ ) {
+
+                    dataAHS.push(response.data.rows[a].PERCENTAGE)
+
+                }
+
+                
+
+            }
+            else {
+
+                for ( var a = 0; a < length; a++ ) {
+
+                    dataLabel.push(response.data.rows[a].CATEGORY)
+
+                }
+
+                for ( var a = 0; a < length; a++ ) {
+
+                    dataAHS.push(response.data.rows[a].PERCENTAGE)
+
+                }
+
+            }
+
+            console.log(dataLabel)
+            console.log(dataAHS)
+
+            const bruh = {
+                labels: dataLabel,
+                datasets: [
+                  {
+                    label: 'Percentage',
+                    data: dataAHS,
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1,
+                  },
+                ],
+              };
+            
+              setChartData(bruh)
+
+              dataAHS = [];
+              dataLabel = [];
+
         })
     }
 
-        
+    function getType(X) {
+        if (X === 'HHRACE' || X === 'HHGRAD') {
+            return 'categorical';
+        }
+        else { return 'numerical' }
+    }
+
+
 
     return (
         <>
 
 
-            
+
             <div style={{
                 top: "100%",
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select Metropolitan Area: 
+                Please Select Metropolitan Area:
                 <select value={metro1} onChange={e => setMetro1(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
-                      <option value={area.value}>{area.label}</option>
+                        <option value={area.value}>{area.label}</option>
                     )};
                 </select>
             </div>
@@ -133,21 +224,16 @@ function Distributions() {
             <Button variant="secondary" onClick={getData}>Search</Button>
             <p>{data}</p>
 
+            <div style={{
+                width: '800px',
+            }}>
+                <PieChartComp data={chartData}></PieChartComp>
+            </div>
             
-        
-
         </>
     )
 }
 
-
-
-function getType(X){
-    if(X == 'HHRACE' || X == 'HHGRAD'){
-        return 'categorical';
-    }
-    else {return 'numerical'}
-}
 
 
 

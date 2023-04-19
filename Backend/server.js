@@ -18,8 +18,8 @@ app.get('/testPage', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "manuel.nunez",
-                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                user: "aaron.estrellado",
+                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -59,13 +59,13 @@ app.get('/MetroAreas', (req, res) => {
     console.log(statement)
 
     async function fetchData() {
- 
+
         try {
 
             const connection = await oracledb.getConnection({
 
-                user: "manuel.nunez",
-                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                user: "aaron.estrellado",
+                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -92,7 +92,7 @@ app.get('/MetroAreas', (req, res) => {
 
         })
 
-        res.end;
+    res.end;
 
 })
 
@@ -115,7 +115,7 @@ app.get('/Distributions', (req, res) => {
     console.log(statement)
 
     async function fetchData() {
- 
+
         try {
 
             const connection = await oracledb.getConnection({
@@ -167,13 +167,13 @@ app.get('/LocalFactors', (req, res) => {
     console.log(statement)
 
     async function fetchData() {
- 
+
         try {
 
             const connection = await oracledb.getConnection({
 
-                user: "manuel.nunez",
-                password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
+                user: "aaron.estrellado",
+                password: "nU8pvHr0K9EC5eZbnTJ9Oe1W",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
@@ -192,7 +192,7 @@ app.get('/LocalFactors', (req, res) => {
     fetchData().then(dbRes => {
 
         res.send(dbRes)
-nat_indicators
+
     })
         .catch(error => {
 
@@ -314,7 +314,7 @@ function MetroAreasQueries(x, y, z, h, stat) {
 
 function localFactorsQueries(x, y, z) {
     return (
-         'select Vals_yearA.year, Vals_yearA.V1, Vals_yearB.V2 '
+        'select Vals_yearA.year, Vals_yearA.V1, Vals_yearB.V2 '
         + 'from '
         + '( '
         + 'select YEAR as year, TRUNC(AVG(' + x + '),2) as V1 '
@@ -339,7 +339,7 @@ function localFactorsQueries(x, y, z) {
 
 function pieChartsQueries(x, z, y, type) {
     if (type == 'categorical') {
-        return( 'SELECT cats.Category, TRUNC((cats.V1/total.V2),3) as PERCENTAGE '
+        return ('SELECT cats.Category, TRUNC((cats.V1/total.V2),3) as PERCENTAGE '
             + 'FROM '
             + '(SELECT ' + x + ' as Category, COUNT(' + x + ') AS V1 '
             + 'FROM AHS '
@@ -354,7 +354,7 @@ function pieChartsQueries(x, z, y, type) {
 
     }
     else if (type == 'numerical') {
-        return('With maxs(r) as '
+        return ('With maxs(r) as '
             + '(Select unique max(' + x + ') from AHS) '
             + 'SELECT Ranges, TRUNC((cats.X/total.Y),3) as PERCENTAGE '
             + 'from '
