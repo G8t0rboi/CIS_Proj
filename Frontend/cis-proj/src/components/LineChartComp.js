@@ -72,6 +72,6 @@ const data = {
   ]
 };
 
-export function LineChartComp() {
-  return <Line options={options} data={data} />;
+  export function LineChartComp({data}) {
+  return <Line options={options} data={data} redraw={true} />;
 }

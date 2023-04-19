@@ -26,16 +26,6 @@ function App() {
     })
 
   }
-
-  useEffect(() => {
-
-    axios.get("http://localhost:8080/message").then((response) => {
-
-      console.log(response.data);
-
-    })
-
-  }, [])
   
   return (
     <div>

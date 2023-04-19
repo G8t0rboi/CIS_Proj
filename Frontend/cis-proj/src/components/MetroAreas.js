@@ -13,6 +13,12 @@ var dataNI = [];
 
 function MetropolitanAreas() {
 
+    const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
+    const emptyGraph = {
+        labels,
+        datasets: []
+    };
+
     const metroAreas = [
         { value: "35620", label: "New York, NY" },
         { value: '31080', label: "Los Angeles, CA" },
@@ -64,7 +70,7 @@ function MetropolitanAreas() {
     const [natSelection, setNatSelection] = useState();
     const [statSelection, setStatSelection] = useState();
     const [chartData, setChartData] = useState([]);
-    
+    const [firstRender, setFirstRender] = useState(false);
 
     const [data, setData] = useState([])
 
@@ -105,6 +111,10 @@ function MetropolitanAreas() {
 
             }
 
+            console.log(dataMetro1)
+            console.log(dataMetro2)
+            console.log(dataNI)
+
             const labels = ['2001', '2003', '2005', '2007', '2009', '2011', '2013', '2015', '2017', '2019', '2021'];
 
             const bruh = {
@@ -112,7 +122,7 @@ function MetropolitanAreas() {
                 datasets: [
                     {
                         label: 'Metropolitan Area 1',
-                        data: [1,2,3,4,5,6],
+                        data: dataMetro1,
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         yAxisID: 'y',
@@ -126,25 +136,32 @@ function MetropolitanAreas() {
                     },
                     {
                         label: 'National Indicator',
-                        data: [6,5,4,3,2,1],
-                        borderColor: 'rgb(100, 162, 235)',
-                        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                        data: dataNI,
+                        borderColor: 'rgb(100, 162, 100)',
+                        backgroundColor: 'rgba(53, 162, 100, 0.5)',
                         yAxisID: 'y1',
                     },
                 ],
             };
 
-            
-            setChartData(bruh);
 
+            setChartData(bruh);
+            dataMetro1 = [];
+            dataMetro2 = [];
+            dataNI = [];
         })
     }
+
+    useEffect(() => {
+
+        setChartData(emptyGraph)
+
+    }, [])
+
+
     return (
+
         <>
-
-
-
-
             <div style={{
                 top: "100%",
                 left: "15%",
@@ -215,13 +232,12 @@ function MetropolitanAreas() {
             <p>{data}</p>
 
             <div style={{
-                width: '600',
-                hegit: "300",
+                width: '1200',
             }}>
-                <LineChartComp></LineChartComp>
+                <LineChartComp data={chartData}></LineChartComp>
             </div>
 
-            
+
         </>
     )
 }
