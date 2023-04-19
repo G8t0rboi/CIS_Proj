@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors());
 
-oracledb.initOracleClient({libDir: '/Users/manuelnunezmartinez/Downloads/instantclient_19_8'});
+//oracledb.initOracleClient({libDir: '/Users/manuelnunezmartinez/Downloads/instantclient_19_8'});
 
 
 
@@ -161,10 +161,6 @@ app.get('/Distributions', (req, res) => {
             })
 
             const result = await connection.execute(statement, [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
-            connection.close()
-            if (connection)
-                console.log('Connection not closed')
-
             return result;
 
         } catch (error) {
