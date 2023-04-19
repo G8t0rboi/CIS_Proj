@@ -54,7 +54,7 @@ app.get('/tupleCount', (req, res) => {
 
     async function fetchData() {
 
-        const statement = '(select count(*) as COUNT from AHS) union (select count(*) as COUNT from NAT_INDICATORS)'
+        const statement = 'select unique ((select count(*) from AHS) +  (select count(*) from NAT_INDICATORS)) total from AHS, NAT_INDICATORS'
 
         try {
 
@@ -155,12 +155,16 @@ app.get('/Distributions', (req, res) => {
 
             const connection = await oracledb.getConnection({
 
-                user: "amanuel.nunez",
+                user: "manuel.nunez",
                 password: "SJ3vtvEHEFavwAGrAwjUQ2XT",
                 connectString: "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
             })
 
             const result = await connection.execute(statement, [], { outFormat: oracledb.OUT_FORMAT_OBJECT })
+            connection.close()
+            if (connection)
+                console.log('Connection not closed')
+
             return result;
 
         } catch (error) {
