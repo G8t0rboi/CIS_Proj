@@ -167,7 +167,7 @@ function MetropolitanAreas() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select Metropolitan Area 1:
+                {'Please Select Metropolitan Area 1: '}
                 <select value={metro1} onChange={e => setMetro1(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
@@ -180,7 +180,7 @@ function MetropolitanAreas() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select Metropolitan Area 2:
+                {'Please Select Metropolitan Area 2: '}
                 <select value={metro2} onChange={e => setMetro2(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
@@ -193,7 +193,7 @@ function MetropolitanAreas() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select a Household Attribute:
+                {'Please Select a Household Attribute: '}
                 <select value={ahsSelection} onChange={e => setAHSSelection(e.target.value)}>
                     <option>--Select Household Attribute--</option>
                     {ahs_attributes.map(attribute =>
@@ -206,7 +206,7 @@ function MetropolitanAreas() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select a National Indicator:
+                {'Please Select a National Indicator: '}
                 <select value={natSelection} onChange={e => setNatSelection(e.target.value)}>
                     <option>--Select National Indicator--</option>
                     {nat_indicators.map(indicator =>
@@ -219,7 +219,7 @@ function MetropolitanAreas() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Select a Statistical Measure:
+                {'Select a Statistical Measure: '}
                 <select value={statSelection} onChange={e => setStatSelection(e.target.value)}>
                     <option>--Statistical Measure--</option>
                     <option value="Average">Mean</option>

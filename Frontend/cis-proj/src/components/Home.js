@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Home() {
+    var tupleCounts = []
+    const [tupleCount, setTupleCount] = useState('')
+    const getData = () => {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:8080/tupleCount'
+        }
+
+        axios.request(options).then((response) => {
+
+            console.log(response)
+            tupleCounts.push(response.data.rows[0].COUNT)
+            tupleCounts.push(response.data.rows[1].COUNT)
+
+        })
+        var tempNum = tupleCounts[0] + tupleCounts[1]
+        var tempString = "Total Tuple Count: " + toString(tempNum)
+        setTupleCount(tempString)
+        tupleCounts = []
+    }
 
     return (
         <div>
@@ -41,7 +62,7 @@ function Home() {
                 style={{
                     position: "absolute",
                     top: "65%",
-                    left: "10%"
+                    left: "15%"
                 }}>
                 <Link to="/metropolitanAreas">
                     <Button variant="secondary" size="lg">Compare Two Metropolitan Areas</Button>
@@ -61,7 +82,7 @@ function Home() {
                 style={{
                     position: "absolute",
                     top: "65%",
-                    left: "70%"
+                    left: "65%"
                 }}>
                 <Link to="/localFactors">
                     <Button variant="secondary" size="lg">Compare Local Factors</Button>
@@ -73,11 +94,17 @@ function Home() {
                     top: "90%",
                     left: "45%"
                 }}>
-                <Link to="/testPage">
-                    <Button variant="secondary" size="lg">TestPage</Button>
-                </Link>
+                <Button variant="secondary" size="lg" onClick={getData}>Get Tuple Count</Button>
+            </div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "80%",
+                    left: "40%"
+                }}>
+                <h1>{tupleCount}</h1>
             </div>
         </div>
-      )
+    )
 }
 export default Home

@@ -187,7 +187,7 @@ function Distributions() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select Metropolitan Area:
+                {'Please Select Metropolitan Area: '}
                 <select value={metro1} onChange={e => setMetro1(e.target.value)}>
                     <option>--Select Metropolitan Area--</option>
                     {metroAreas.map(area =>
@@ -200,7 +200,7 @@ function Distributions() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Please Select a Household Attribute:
+                {'Please Select a Household Attribute: '}
                 <select value={ahsSelection} onChange={e => setAHSSelection(e.target.value)}>
                     <option>--Select Household Attribute--</option>
                     {ahs_attributes.map(attribute =>
@@ -213,7 +213,7 @@ function Distributions() {
                 left: "15%",
                 fontWeight: "bold"
             }}>
-                Select a year:
+                {'Select a Year: '}
                 <select value={yearSelection} onChange={e => setYearSelection(e.target.value)}>
                     <option>--Year--</option>
                     {years.map(attribute =>
